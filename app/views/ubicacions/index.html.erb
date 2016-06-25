@@ -1,0 +1,31 @@
+<div class="page-header">
+  <%= link_to new_ubicacion_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    Nuevo Ubicacion
+  <% end %>
+  <h4>Listado de  ubicacions</h4>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Latitud</th>
+            <th>Longitud</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @ubicacions) do |ubicacion| %>
+            <td><%= ubicacion.latitud %></td>
+            <td><%= ubicacion.longitud %></td>
+            <td><%= link_to 'Ver', ubicacion %></td>
+        <td><%= link_to 'Editar', edit_ubicacion_path(ubicacion) %></td>
+        <td><%= link_to 'Eliminar', ubicacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

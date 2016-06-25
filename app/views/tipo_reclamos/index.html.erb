@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to new_tipo_reclamo_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    Nuevo Tipo reclamo
+  <% end %>
+  <h4>Listado de  tipo_reclamos</h4>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Nombre</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @tipo_reclamos) do |tipo_reclamo| %>
+            <td><%= tipo_reclamo.nombre %></td>
+            <td><%= link_to 'Ver', tipo_reclamo %></td>
+        <td><%= link_to 'Editar', edit_tipo_reclamo_path(tipo_reclamo) %></td>
+        <td><%= link_to 'Eliminar', tipo_reclamo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

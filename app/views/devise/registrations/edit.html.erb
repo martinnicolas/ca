@@ -1,0 +1,50 @@
+<div class="page-header"><h4>Editar cuenta</h4></div>
+
+<ul class="nav nav-pills">
+  <li role="presentation"><%= link_to "Volver", :back %></li>
+</ul>
+
+<br/>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: "form", class: "form-horizontal", method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= f.label :email %>
+  <div class="form-group">
+    <div class="col-lg-3">
+      <%= f.email_field :email, autofocus: true, :class => "form-control" %>
+    </div>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <%= f.label :password, "Clave" %> <i>(no complete el campo si no desea cambiarlo)</i>
+  <div class="form-group">
+    <div class="col-lg-4">
+      <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
+    </div>
+  </div>
+
+  <%= f.label :password_confirmation, "Confirmar clave" %>
+  <div class="form-group">
+    <div class="col-lg-4">
+      <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
+    </div>
+  </div>
+
+  <%= f.label :current_password, "Clave actual" %> <i>(necesitamos tu clave actual para confirmar los cambios)</i>
+  <div class="form-group">
+    <div class="col-lg-4">
+      <%= f.password_field :current_password, autocomplete: "off", :class => "form-control" %>
+    </div>
+  </div>
+  <%= f.submit "Guardar", :class => "btn btn-primary"%>
+<% end %>
+
+<div class="page-header"><h4>Cancelar mi cuenta</h4></div>
+
+<p>No estás conforme? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Estás seguro?" }, method: :delete, :class => "btn btn-primary" %></p>
+
+

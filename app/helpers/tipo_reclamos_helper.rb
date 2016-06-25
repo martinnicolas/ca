@@ -1,0 +1,2 @@
+module TipoReclamosHelper
+end

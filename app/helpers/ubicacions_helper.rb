@@ -1,0 +1,2 @@
+module UbicacionsHelper
+end

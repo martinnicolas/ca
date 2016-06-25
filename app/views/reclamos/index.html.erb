@@ -1,0 +1,57 @@
+<div class="page-header">
+  <%= link_to new_reclamo_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    Nuevo Reclamo
+  <% end %>
+  <h4>Mis reclamos</h4>
+</div>
+
+<% if !@reclamos.empty? %>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <!--<th>Imagen</th>-->
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Fecha</th>
+            <th>Valor</th>
+            <th>Tipo de Reclamo</th>
+            <th></th>
+            <th></th>
+            <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @reclamos) do |reclamo| %>
+        <!--<td><%= image_tag reclamo.imagen.thumb.url %></td>-->
+        <td><%= reclamo.titulo %></td>
+        <td><%= reclamo.descripcion %></td>
+        <td><%= reclamo.fecha.strftime('%d/%m/%Y') %></td>
+        <td><%= reclamo.valoracion %></td>
+        <td><%= reclamo.tipo_reclamo %></td>             
+        <td>
+        <%= link_to reclamo do %>
+          <span class="glyphicon glyphicon-search"></span>
+        <% end %>
+        </td>
+        <td>
+        <%= link_to edit_reclamo_path(reclamo) do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+        <% end %>
+        </td>
+        <td>
+        <%= link_to reclamo, method: :delete, data: { confirm: 'Estás seguro que quieres eliminar este Reclamo?' } do %>
+          <span class="glyphicon glyphicon-trash"></span>
+        <% end %>
+        </td>        
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<% else%>
+<div class="alert fade in alert-info alert-dismissable"><button class="close" data-dismiss="alert" aria-hidden="true" type="button">&times;</button>Todavía no creaste ningún <b>Reclamo</b>. Haz click en el btón <b>Nuevo Reclamo</b> para crear uno.</div>
+<% end%>

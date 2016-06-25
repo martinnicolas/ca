@@ -1,0 +1,17 @@
+<div class="page-header"><h4>Olvidaste tu clave?</h4></div>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {role: "form", class: "form-horizontal", method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+   <%= f.label :email %>
+  <div class="form-group">
+  	<div class="col-lg-3">
+    	<%= f.email_field :email, :class => "form-control", autofocus: true %>
+    </div>
+  </div>
+   <%= f.submit "Envíenme instrucciones para restablecer mi clave", :class => "btn btn-primary"%>
+<% end %>
+
+<br/>
+
+<%= render "devise/shared/links" %>

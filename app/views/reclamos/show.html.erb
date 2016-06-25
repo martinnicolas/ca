@@ -1,0 +1,126 @@
+<div class="page-header">
+  <%= link_to reclamos_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Mis reclamos
+  <% end %>
+  <% if @reclamo.user_id == current_user.id %>
+    <%= link_to edit_reclamo_path(@reclamo), class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Editar
+    <% end %>
+  <% end %>
+  <%= link_to index_path, class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-home"></span>
+      Ir al inicio
+    <% end %>
+  <% if @reclamo.valorado(current_user.id) %>
+    <%= link_to quitar_valor_path(@reclamo), class: 'btn btn-success' do %>
+      <span class="glyphicon glyphicon-thumbs-down"></span>
+      Ya no me gusta
+    <% end %>
+  <% else %>
+    <%= link_to valorar_path(@reclamo), class: 'btn btn-success' do %>
+      <span class="glyphicon glyphicon-thumbs-up"></span>
+      Me gusta
+    <% end %>
+  <% end %>
+  <h4>&nbsp;</h4>
+</div>
+
+<% if !@reclamos_relacionados.empty? %>
+<div class="col-sm-8">
+<% end %>  
+<div class="panel panel-default">
+  <div class="panel-heading"><b><%= @reclamo.user.email %></b></div>
+  <div class="panel-body">
+    <div class="col-sm-6">  
+      <div class="thumbnail">
+        <%= image_tag @reclamo.imagen.thumb.url %>
+      </div>
+    </div>
+      <div class="col-sm-6">
+        <div class="row">
+          <div id="mapa_div" style="width:100%; height:200px"></div>        
+        </div>
+        <br/>
+        <div class="row">
+          <p><h3><b><%= @reclamo.titulo %></b></h3> (<%= @reclamo.fecha.strftime('%d/%m/%Y')%>)</p>
+          <p><%= @reclamo.descripcion %></p>
+        </div>
+      </div>
+  </div>
+</div>
+<% if !@reclamos_relacionados.empty? %>
+</div>
+<div class="col-sm-4">
+    <div class="page-header">
+      <h4>Reclamos relacionados</h4>
+    </div>
+    <div class="pre-scrollable">
+      <% @reclamos_relacionados.each do |reclamo| %>        
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <b><%= reclamo.user.email %></b>
+            </div>
+            <div class="panel-body text-center">
+              <div class="thumbnail">            
+                <%= image_tag reclamo.imagen.thumb.url %>
+                <div class="caption">
+                  <h3><%= reclamo.titulo %></h3>
+                  <p>
+                    <h4><span class="label label-success">
+                      <span class="glyphicon glyphicon-thumbs-up"></span>
+                      <span class="badge"><%= reclamo.valoracion %></span>
+                      </span>
+                    </h4>
+                  </p>
+                  <p><%= reclamo.fecha.strftime('%d/%m/%Y')%></p>              
+                  <p>                
+                    <%= link_to reclamo, class: 'btn btn-primary btn-block' do %>
+                      <span class="glyphicon glyphicon-search"></span> Ver Reclamo
+                    <% end %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>        
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
+<script type="text/javascript">
+  var iconBase = '<%= asset_path 'ui_markers_sprite.png' %>';
+  var map;
+  function inicializar_mapa() {
+    var myOptions = {
+      zoom: 15,
+      center: new google.maps.LatLng(-43.296344, -65.091966),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    map = new google.maps.Map(document.getElementById("mapa_div"), myOptions);
+
+    feature = {
+      title: '<%= @reclamo.titulo %>',
+      position: new google.maps.LatLng(<%= @reclamo.ubicacion.latitud %>,<%= @reclamo.ubicacion.longitud %>)
+    }
+
+    //Creo un nuevo marcador
+    var marker= new google.maps.Marker({
+      title: feature.title,
+      position: feature.position,
+      icon: new google.maps.MarkerImage(iconBase, new google.maps.Size(19,25),new google.maps.Point(29,192)),
+      map: map
+    });
+
+    map.setCenter(feature.position);
+
+  }
+
+  //Cargo el mapa en la ventana y lo inicializo llamando la funcion initialize()
+  //google.maps.event.addDomListener(window, 'page:load', inicializar_mapa);
+  $('document').ready(function(){
+    inicializar_mapa();
+  });
+</script>

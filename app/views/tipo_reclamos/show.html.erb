@@ -1,0 +1,17 @@
+<div class="page-header">
+  <%= link_to tipo_reclamos_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Volver
+  <% end %>
+  <%= link_to edit_tipo_reclamo_path(@tipo_reclamo), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h4>Ver tipo_reclamo</h4>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Nombre:</dt>
+  <dd><%= @tipo_reclamo.nombre %></dd>
+
+</dl>

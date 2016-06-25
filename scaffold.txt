@@ -1,0 +1,4 @@
+rails g scaffold TipoReclamo nombre:string
+rails g scaffold Ubicacion latitud:string longitud:string
+rails g scaffold Reclamo imagen:string titulo:string descripcion:string fecha:date ubicacion:references tipo_reclamo:references user:references
+rails g model ReclamoUsuario reclamo:references user:references

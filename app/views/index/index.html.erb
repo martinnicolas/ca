@@ -1,0 +1,141 @@
+<div id="mapa_div" style="width:100%; height:500px"></div>
+<div class="page-header">
+	<h2>Reclamos destacados</h2>
+</div>
+
+<div class="row">
+<% @reclamos_destacados.each do |reclamo| %>
+	<div class="col-sm-6 col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <b><%= reclamo.user.email %></b>
+      </div>
+      <div class="panel-body text-center">
+        <div class="thumbnail">            
+          <%= image_tag(reclamo.imagen.thumb.url, :id => "reclamo")%>
+          <div class="caption">
+            <h4><%= reclamo.titulo%></h4>
+            <p>
+              <h4><span class="label label-success">
+                <span class="glyphicon glyphicon-thumbs-up"></span>
+                <span class="badge"><%= reclamo.valoracion %></span>
+                </span>
+              </h4>
+            </p>
+            <p><%= reclamo.fecha.strftime('%d/%m/%Y')%></p>              
+            <p>                
+              <%= link_to reclamo, class: 'btn btn-primary btn-block' do %>
+                <span class="glyphicon glyphicon-search"></span> Ver Reclamo
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>      
+<% end %>
+</div>
+
+<div class="page-header">
+	<h2>Útimos reclamos <br/><small>Estos son los últimos reclamos subidos por los ciudadanos. Apoyalos!</small></h2>
+</div>
+
+<div class="row">
+<% @ultimos_reclamos.each do |reclamo| %>
+	<div class="col-sm-6 col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <b><%= reclamo.user.email %></b>
+      </div>
+      <div class="panel-body text-center">
+        <div class="thumbnail">            
+          <%= image_tag(reclamo.imagen.thumb.url, :id => "reclamo")%>
+          <div class="caption">
+            <h4><%= reclamo.titulo%></h4>
+            <p>
+              <h4><span class="label label-success">
+                <span class="glyphicon glyphicon-thumbs-up"></span>
+                <span class="badge"><%= reclamo.valoracion %></span>
+                </span>
+              </h4>
+            </p>
+            <p><%= reclamo.fecha.strftime('%d/%m/%Y')%></p>              
+            <p>                
+              <%= link_to reclamo, class: 'btn btn-primary btn-block' do %>
+                <span class="glyphicon glyphicon-search"></span> Ver Reclamo
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>      
+<% end %>
+</div>
+
+
+<script type="text/javascript">
+  var iconBase = '<%= asset_path 'ui_markers_sprite.png' %>';
+  var icons = {
+    1: {
+      icon: new google.maps.MarkerImage(iconBase, new google.maps.Size(37,49),new google.maps.Point(21,120))
+    },
+    2: {
+      icon: new google.maps.MarkerImage(iconBase, new google.maps.Size(37,49),new google.maps.Point(75,120))
+    },
+    3: {
+      icon: new google.maps.MarkerImage(iconBase, new google.maps.Size(37,49),new google.maps.Point(129,120))
+    },
+    7: {
+      icon: new google.maps.MarkerImage(iconBase, new google.maps.Size(37,49),new google.maps.Point(183,120))
+    },
+    5: {
+      icon: new google.maps.MarkerImage(iconBase, new google.maps.Size(37,49),new google.maps.Point(237,120))
+    },
+    6: {
+      icon: new google.maps.MarkerImage(iconBase, new google.maps.Size(37,49),new google.maps.Point(291,120))
+    },
+    4: {
+      icon: new google.maps.MarkerImage(iconBase, new google.maps.Size(37,49),new google.maps.Point(345,120))
+    }
+  };
+
+  function inicializar_mapa() {
+    var mapOptions = {
+      center: new google.maps.LatLng(-43.296344, -65.091966),
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    var map = new google.maps.Map(document.getElementById("mapa_div"),mapOptions);
+
+    <% if !@reclamos_destacados.empty? %>
+
+      <% @reclamos_destacados.each do |reclamo| %>
+        feature = {
+          title: '<%= reclamo.titulo %>',
+          position: new google.maps.LatLng(<%= reclamo.ubicacion.latitud %>,<%= reclamo.ubicacion.longitud %>),
+          type: <%= reclamo.tipo_reclamo.id %>
+        }
+
+        //Creo un nuevo marcador
+        var marker= new google.maps.Marker({
+          title: feature.title,
+          position: feature.position,
+          icon: icons[feature.type].icon,
+          map: map
+        });      
+
+      <% end %>
+
+    <% end %>
+
+  }
+
+  //Cargo el mapa en la ventana y lo inicializo llamando la funcion initialize()
+  //google.maps.event.addDomListener(window, 'page:load', inicializar_mapa);
+
+  $('document').ready(function(){
+    inicializar_mapa();
+  });
+</script>

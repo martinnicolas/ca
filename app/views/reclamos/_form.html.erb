@@ -1,0 +1,168 @@
+<%= form_for(@reclamo, html: { class: "form-horizontal", role: "form", multipart: true, onsubmit: "return validate_marker()" }) do |f| %>
+  <% if @reclamo.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+      <h4>No se pudo guardar el formulario, tiene los siguientes errores</h4>
+      <ul>
+      <% @reclamo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="mapa_div" style="width:100%; height:500px"></div>
+  <div class="panel panel-default">
+  <div class="panel-heading">Ingrese los siguientes datos</div>
+  <div class="panel-body">
+  <div class="form-group">
+    <%= f.label :imagen, class: "col-sm-2 control-label" %>
+    <div class="col-lg-2">
+      <% if f.object.imagen? %>
+        <%= f.file_field :imagen %>
+      <% else %>
+        <%= f.file_field :imagen, required: true %>
+      <% end %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :titulo, "Título", class: "col-sm-2 control-label" %>
+    <div class="col-lg-4">
+      <%= f.text_field :titulo, class: "form-control", required: true %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :descripcion, "Descripción", class: "col-sm-2 control-label" %>
+    <div class="col-lg-6">
+      <%= f.text_field :descripcion, class: "form-control", required: true %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :fecha, class: "col-sm-2 control-label" %>
+    <div class="col-lg-2">
+      <%= f.text_field :fecha, class: "form-control", id: "datepicker", required: true %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :tipo_reclamo_id, "Tipo de reclamo", class: "col-sm-2 control-label" %>
+    <div class="col-lg-3">
+      <%= f.collection_select :tipo_reclamo_id, TipoReclamo.all, :id, :to_s, {prompt: false}, {:class => "form-control"} %>
+    </div>
+  </div>
+  <%= hidden_field(:ubicacion, :latitud) %>
+  <%= hidden_field(:ubicacion, :longitud) %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary", value: "Guardar Reclamo" %>
+    </div>
+  </div>
+ </div>
+</div>
+<% end %>
+
+
+<script type="text/javascript">
+  var iconBase = '<%= asset_path 'ui_markers_sprite.png' %>';
+  var map;
+  var markersArray = [];
+
+  function inicializar_mapa() {
+    var myOptions = {
+      zoom: 15,
+      center: new google.maps.LatLng(-43.296344, -65.091966),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    map = new google.maps.Map(document.getElementById("mapa_div"), myOptions);
+
+    feature = {
+      type: 'library'
+    }
+
+    <% if params[:id] != nil %>
+
+      feature = {
+        title: '<%= @reclamo.titulo %>',
+        position: new google.maps.LatLng(<%= @reclamo.ubicacion.latitud %>,<%= @reclamo.ubicacion.longitud %>)
+      }
+
+      //Creo un nuevo marcador
+      var marker = new google.maps.Marker({
+        title: feature.title,
+        position: feature.position,
+        icon: new google.maps.MarkerImage(iconBase, new google.maps.Size(19,25),new google.maps.Point(29,192)),
+        draggable: true,
+        map: map
+      });
+
+      marker.addListener('drag',function(event) {
+        document.getElementById('ubicacion_latitud').value = event.latLng.lat();
+        document.getElementById('ubicacion_longitud').value = event.latLng.lng();
+        console.log("latitud: "+event.latLng.lat()+" - longitud: "+event.latLng.lng());
+      });
+
+      markersArray.push(marker);
+
+    <% end %>
+
+    // add a click event handler to the map object
+    google.maps.event.addListener(map, "click", function(event)
+    {
+      // place a marker
+      placeMarker(event.latLng);
+      document.getElementById('ubicacion_latitud').value = event.latLng.lat();
+      document.getElementById('ubicacion_longitud').value = event.latLng.lng();
+      console.log("latitud: "+event.latLng.lat()+" - longitud: "+event.latLng.lng());
+    });
+
+  }
+
+  function placeMarker(location) {
+    // first remove all markers if there are any
+
+    deleteOverlays();
+
+    var marker = new google.maps.Marker({
+      title: feature.title,
+      position: location,
+      icon: new google.maps.MarkerImage(iconBase, new google.maps.Size(19,25),new google.maps.Point(29,192)),
+      draggable: true,
+      map: map
+    });
+
+    marker.addListener('drag',function(event) {
+      document.getElementById('ubicacion_latitud').value = event.latLng.lat();
+      document.getElementById('ubicacion_longitud').value = event.latLng.lng();
+      console.log("latitud: "+event.latLng.lat()+" - longitud: "+event.latLng.lng());
+    });
+
+    // add marker in markers array
+    markersArray.push(marker);
+
+  }
+
+  // Deletes all markers in the array by removing references to them
+  function deleteOverlays() {
+    if (markersArray) {
+      for (i in markersArray) {
+        markersArray[i].setMap(null);
+      }
+      markersArray.length = 0;
+    }
+  }
+
+  function validate_marker(){
+     if (markersArray.length == 0){
+      alert("Debe seleccionar una ubicación en el mapa");
+      return false;
+     }
+     return true;
+  }
+
+  //Cargo el mapa en la ventana y lo inicializo llamando la funcion initialize()
+  //google.maps.event.addDomListener(window, 'page:load', inicializar_mapa);
+  $('document').ready(function(){
+    inicializar_mapa();
+    $("#datepicker").datepicker();
+  });
+</script>

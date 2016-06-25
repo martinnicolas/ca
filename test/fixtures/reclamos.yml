@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  imagen: MyString
+  titulo: MyString
+  descripcion: MyString
+  fecha: 2016-06-14
+  ubicacion_id: 
+  tipo_reclamo_id: 
+  user_id: 
+
+two:
+  imagen: MyString
+  titulo: MyString
+  descripcion: MyString
+  fecha: 2016-06-14
+  ubicacion_id: 
+  tipo_reclamo_id: 
+  user_id: 
