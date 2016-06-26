@@ -69,15 +69,15 @@
   function inicializar_mapa() {
     var myOptions = {
       zoom: 15,
+      <% if params[:id] != nil %>
+      center: new google.maps.LatLng(<%= @reclamo.ubicacion.latitud %>, <%= @reclamo.ubicacion.longitud %>),
+      <% else %>
       center: new google.maps.LatLng(-43.296344, -65.091966),
+      <% end %>
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
     map = new google.maps.Map(document.getElementById("mapa_div"), myOptions);
-
-    feature = {
-      type: 'library'
-    }
 
     <% if params[:id] != nil %>
 
@@ -123,7 +123,6 @@
     deleteOverlays();
 
     var marker = new google.maps.Marker({
-      title: feature.title,
       position: location,
       icon: new google.maps.MarkerImage(iconBase, new google.maps.Size(19,25),new google.maps.Point(29,192)),
       draggable: true,

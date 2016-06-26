@@ -11,7 +11,7 @@ class ReclamosController < InheritedResources::Base
   # GET /reclamos/1.json
   def show
     @reclamo = Reclamo.find(params[:id])
-    @reclamos_relacionados = Reclamo.where(:tipo_reclamo_id => @reclamo.tipo_reclamo_id).where.not(:id => @reclamo.id).order(:fecha)
+    @reclamos_relacionados = Reclamo.where(:tipo_reclamo_id => @reclamo.tipo_reclamo_id).where.not(:id => @reclamo.id).order('fecha DESC')
   end
 
   # GET /reclamos/new
