@@ -80,10 +80,58 @@
       <%= bootstrap_flash %>
       <%= yield %>
     </div> <!-- /container -->
-    <footer class="footer">
-      <div class="container">
-        <p class="text-muted">Ciudad Activa</p>
+    
+    <footer class="footer"> 
+      <div class="container"> 
+        <div class="row"> 
+          <div class="col-sm-6 text-left"> 
+            <h1>Ciudad Activa</h1> 
+            <p>
+              Ciudad Activa es una comunidad de usuarios abierta, para toda la comunidad, 
+              <br>una herramienta para que todos los ciudadanos hagan uso de ella. 
+              <br>Ver Términos de usos y condiciones.
+            </p>
+        </div>
+        <div class="col-sm-6"> 
+        <p class="text-info text-right"> 
+          <br>
+          <br>
+        </p>
+        <div class="row"> 
+          <div class="col-md-12 hidden-lg hidden-md hidden-sm text-left"> 
+            <%= link_to 'https://github.com/martinnicolas/ca.git' do %>
+              <i class="fa fa-3x fa-fw fa-instagram text-inverse"></i>
+            <% end %>
+            <%= link_to 'https://github.com/martinnicolas/ca.git' do %>
+              <i class="fa fa-3x fa-fw fa-twitter text-inverse"></i>
+            <% end %>
+            <%= link_to 'https://github.com/martinnicolas/ca.git' do %>
+              <i class="fa fa-3x fa-fw fa-facebook text-inverse"></i>
+            <% end %>
+            <%= link_to 'https://github.com/martinnicolas/ca.git' do %>
+              <i class="fa fa-3x fa-fw fa-github text-inverse"></i>
+            <% end %>
+          </div>
+        </div>
+        <div class="row"> 
+          <div class="col-md-12 hidden-xs text-right"> 
+            <%= link_to 'https://github.com/martinnicolas/ca.git' do %>
+              <i class="fa fa-3x fa-fw fa-instagram text-inverse"></i>
+            <% end %>
+            <%= link_to 'https://github.com/martinnicolas/ca.git' do %>
+              <i class="fa fa-3x fa-fw fa-twitter text-inverse"></i>
+            <% end %>
+            <%= link_to 'https://github.com/martinnicolas/ca.git' do %>
+              <i class="fa fa-3x fa-fw fa-facebook text-inverse"></i>
+            <% end %>
+            <%= link_to 'https://github.com/martinnicolas/ca.git' do %>
+              <i class="fa fa-3x fa-fw fa-github text-inverse"></i>
+            <% end %>
+          </div>
+        </div>
       </div>
-    </footer>
+    </div>
+  </div>
+</footer>
   </body>
 </html>

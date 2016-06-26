@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require jquery-ui
+ *= require font-awesome
  */
 
  /* Sticky footer styles
@@ -197,4 +198,22 @@ code {
 
 #container{
   padding-bottom: 100px;
+  margin-bottom: 200px;
 }
+
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: inherit;
+  background-color: #337ab7 !important;
+  color: #FFFFFF;
+  padding: 35px 0;
+  display: block;
+}
+
+.footer i{
+  color: #FFFFFF; 
+}
+
