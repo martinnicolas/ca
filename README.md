@@ -6,6 +6,7 @@
 
 
 ### Requisitos
+----------
 
 Minimagick para procesamiento de imágenes 
 	
