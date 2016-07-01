@@ -5,8 +5,10 @@
 * MySQL 5
 
 
+
+
 ####Requisitos
 
-* Minimagick para procesamiento de imágenes 
+Minimagick para procesamiento de imágenes 
 	
 	sudo apt-get install minimagick
