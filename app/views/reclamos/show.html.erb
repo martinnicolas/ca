@@ -44,7 +44,13 @@
         </div>
         <br/>
         <div class="row">
-          <p><h3><b><%= @reclamo.titulo %></b></h3> (<%= @reclamo.fecha.strftime('%d/%m/%Y')%>)</p>
+          <p><h3><b><%= @reclamo.titulo %></b></h3> 
+            (<%= @reclamo.fecha.strftime('%d/%m/%Y')%>)
+            <span class="label label-success">
+            <span class="glyphicon glyphicon-thumbs-up"></span>
+            <span class="badge"><%= @reclamo.valoracion %></span>
+            </span>
+          </p>
           <p><%= @reclamo.descripcion %></p>
         </div>
       </div>
@@ -95,7 +101,7 @@
   function inicializar_mapa() {
     var myOptions = {
       zoom: 15,
-      center: new google.maps.LatLng(-43.296344, -65.091966),
+      center: new google.maps.LatLng(rawson.latitud,rawson.longitud),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 

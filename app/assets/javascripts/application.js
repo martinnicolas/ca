@@ -17,6 +17,13 @@
 //= require bootstrap
 //= require_tree .
 
+/*JSON Object para centrar el mapa*/
+var rawson = {
+   latitud: -43.296344,
+   longitud: -65.091966,
+   zoom: 15
+}
+
 jQuery(function($){
    $.datepicker.regional['es'] = {
       closeText: 'Cerrar',

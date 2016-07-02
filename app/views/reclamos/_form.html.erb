@@ -68,11 +68,11 @@
 
   function inicializar_mapa() {
     var myOptions = {
-      zoom: 15,
+      zoom: rawson.zoom,
       <% if params[:id] != nil %>
       center: new google.maps.LatLng(<%= @reclamo.ubicacion.latitud %>, <%= @reclamo.ubicacion.longitud %>),
       <% else %>
-      center: new google.maps.LatLng(-43.296344, -65.091966),
+      center: new google.maps.LatLng(rawson.latitud,rawson.longitud),
       <% end %>
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };

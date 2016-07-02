@@ -102,8 +102,8 @@
 
   function inicializar_mapa() {
     var mapOptions = {
-      center: new google.maps.LatLng(-43.296344, -65.091966),
-      zoom: 15,
+      center: new google.maps.LatLng(rawson.latitud, rawson.longitud),
+      zoom: rawson.zoom,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
@@ -119,12 +119,13 @@
         }
 
         //Creo un nuevo marcador
-        var marker= new google.maps.Marker({
+        var marker = new google.maps.Marker({
           title: feature.title,
+          animation: google.maps.Animation.DROP,
           position: feature.position,
           icon: icons[feature.type].icon,
           map: map
-        });      
+        });  
 
       <% end %>
 
