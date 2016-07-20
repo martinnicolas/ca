@@ -14,6 +14,8 @@
  *= require_self
  *= require jquery-ui
  *= require font-awesome
+ *= require dataTables/jquery.dataTables
+ *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  */
 
  /* Sticky footer styles
@@ -200,7 +202,6 @@ code {
   padding-bottom: 100px;
   margin-bottom: 200px;
 }
-
 
 .footer {
   position: absolute;

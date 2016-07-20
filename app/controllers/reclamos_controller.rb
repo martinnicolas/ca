@@ -4,7 +4,11 @@ class ReclamosController < InheritedResources::Base
   # GET /reclamos
   # GET /reclamos.json
   def index
-    @reclamos = Reclamo.where(:user_id => current_user.id)
+    @reclamos = Reclamo.where(:user_id => current_user.id).includes(:tipo_reclamo)
+    respond_to do |format|
+      format.html
+      format.json { render json: ReclamoDatatable.new(view_context,{current_user: current_user}) }
+    end
   end
 
   # GET /reclamos/1

@@ -15,6 +15,8 @@
 //= require jquery-ui
 //= require turbolinks
 //= require bootstrap
+//= require dataTables/jquery.dataTables
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require_tree .
 
 /*JSON Object para centrar el mapa*/
