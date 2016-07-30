@@ -1,4 +1,4 @@
-class UbicacionsController < InheritedResources::Base
+class UbicacionsController < ApplicationController
   before_action :authenticate_user!
   
   private

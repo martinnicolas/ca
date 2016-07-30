@@ -1,4 +1,4 @@
-class TipoReclamosController < InheritedResources::Base
+class TipoReclamosController < ApplicationController
   before_action :authenticate_user!
   
   private

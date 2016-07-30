@@ -22,7 +22,7 @@
                 </span>
               </h4>
             </p>
-            <p><%= reclamo.fecha.strftime('%d/%m/%Y')%></p>              
+            <p><%= reclamo.fecha.to_s(:default)%></p>              
             <p>                
               <%= link_to reclamo, class: 'btn btn-primary btn-block' do %>
                 <span class="glyphicon glyphicon-search"></span> Ver Reclamo
@@ -59,7 +59,7 @@
                 </span>
               </h4>
             </p>
-            <p><%= reclamo.fecha.strftime('%d/%m/%Y')%></p>              
+            <p><%= reclamo.fecha.to_s(:default)%></p>              
             <p>                
               <%= link_to reclamo, class: 'btn btn-primary btn-block' do %>
                 <span class="glyphicon glyphicon-search"></span> Ver Reclamo

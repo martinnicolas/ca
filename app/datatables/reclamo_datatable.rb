@@ -19,7 +19,7 @@ class ReclamoDatatable < AjaxDatatablesRails::Base
       [
         record.titulo,
         record.descripcion,
-        record.fecha.strftime('%d/%m/%Y'),
+        record.fecha.to_s(:default),
         record.tipo_reclamo.to_s,
         '<div class="dropdown">
           <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">

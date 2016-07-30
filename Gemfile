@@ -31,8 +31,6 @@ gem 'devise'
 
 gem 'cancancan'
 
-gem 'activeadmin', github: 'activeadmin'
-
 gem 'jquery-ui-rails'
 
 gem 'jquery_datepicker'

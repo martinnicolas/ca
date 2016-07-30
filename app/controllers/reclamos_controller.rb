@@ -1,4 +1,4 @@
-class ReclamosController < InheritedResources::Base
+class ReclamosController < ApplicationController
   before_action :authenticate_user!
   before_action :set_reclamo, only: [:show, :edit, :update, :destroy]
 
