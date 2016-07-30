@@ -29,7 +29,7 @@ class ReclamoDatatable < AjaxDatatablesRails::Base
           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
             <li role="presentation"><a role="menuitem" tabindex="-1" href="'+Rails.application.routes.url_helpers.reclamo_path(record.id.to_s)+'">Ver</a></li>
             <li role="presentation"><a role="menuitem" tabindex="-1" href="'+Rails.application.routes.url_helpers.edit_reclamo_path(record.id.to_s)+'">Editar</a></li>
-            <li role="presentation"><a rel="nofollow" data-method="delete" data-confirm="Está seguro?" role="menuitem" tabindex="-1" href="'+Rails.application.routes.url_helpers.reclamo_path(record.id.to_s)+'">Eliminar</a></li>
+            <li role="presentation"><a rel="nofollow" data-method="delete" data-confirm="Estás seguro de querer eliminar este Reclamo?" role="menuitem" tabindex="-1" href="'+Rails.application.routes.url_helpers.reclamo_path(record.id.to_s)+'">Eliminar</a></li>
           </ul>
         </div>',
         # comma separated list of the values for each cell of a table row
@@ -42,10 +42,6 @@ class ReclamoDatatable < AjaxDatatablesRails::Base
     # insert query here
     current_user = options[:current_user]
     return Reclamo.joins(:tipo_reclamo).where(:user_id => current_user.id)
-  end
-
-  def sort_records(records)
-    records
   end
 
   # ==== Insert 'presenter'-like methods below if necessary

@@ -1,5 +1,6 @@
 class ReclamosController < InheritedResources::Base
-  before_action :authenticate_user!, :set_reclamo, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :set_reclamo, only: [:show, :edit, :update, :destroy]
 
   # GET /reclamos
   # GET /reclamos.json
