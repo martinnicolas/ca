@@ -11,5 +11,4 @@
 /log/*
 !/log/.keep
 /tmp
-/public/uploads/reclamo/*
-/public/uploads/tmp/*
+/public/uploads/*
