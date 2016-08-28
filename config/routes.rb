@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   resources :reclamos
-  resources :reclamos
   resources :ubicacions
   resources :tipo_reclamos
   devise_for :users
