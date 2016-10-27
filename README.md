@@ -9,6 +9,6 @@
 
 ####Requisitos
 
-Minimagick para procesamiento de imágenes 
+Minimagick para procesamiento de imágenes cargadas por el usuario
 	
 	sudo apt-get install minimagick
