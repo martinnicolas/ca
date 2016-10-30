@@ -1,27 +1,22 @@
 <div class="page-header">
   <%= link_to reclamos_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Mis reclamos
+    <%= fa_icon "list-alt", text: "Mis reclamos" %>
   <% end %>
   <% if @reclamo.user_id == current_user.id %>
     <%= link_to edit_reclamo_path(@reclamo), class: 'btn btn-primary' do %>
-      <span class="glyphicon glyphicon-pencil"></span>
-      Editar
+      <%= fa_icon "edit", text: "Editar" %>
     <% end %>
   <% end %>
   <%= link_to index_path, class: 'btn btn-primary' do %>
-      <span class="glyphicon glyphicon-home"></span>
-      Ir al inicio
+      <%= fa_icon "home", text: "Ir al inicio" %>
     <% end %>
   <% if @reclamo.valorado(current_user.id) %>
     <%= link_to quitar_valor_path(@reclamo), class: 'btn btn-success' do %>
-      <span class="glyphicon glyphicon-thumbs-down"></span>
-      Ya no me gusta
+      <%= fa_icon "thumbs-down", text: "Ya no me gusta" %>
     <% end %>
   <% else %>
     <%= link_to valorar_path(@reclamo), class: 'btn btn-success' do %>
-      <span class="glyphicon glyphicon-thumbs-up"></span>
-      Me gusta
+      <%= fa_icon "thumbs-up", text: "Me gusta" %>
     <% end %>
   <% end %>
   <h4>&nbsp;</h4>
@@ -47,7 +42,7 @@
           <p><h3><b><%= @reclamo.titulo %></b></h3> 
             (<%= @reclamo.fecha.to_s(:default)%>)
             <span class="label label-success">
-            <span class="glyphicon glyphicon-thumbs-up"></span>
+            <%= fa_icon "thumbs-up" %>
             <span class="badge"><%= @reclamo.valoracion %></span>
             </span>
           </p>

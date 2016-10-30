@@ -1,0 +1,31 @@
+<%= form_for(@user, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @user.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+      <h5><b><%= fa_icon "exclamation-circle", text: "Atención! Ocurrieron los siguientes errores" %></b></h5>
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= render :partial => '/devise/registrations/form' , :locals => {:f => f} %>
+  
+  <%= f.label 'Roles' %>
+  <div class="form-group">
+    <div class="col-sm-4">
+      <ul class="list-group">
+        <%=  build_role_list('/users/role_checkbox') %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit :class => "btn btn-primary", :value => "Guardar" %>
+    </div>
+  </div>
+
+<% end %>

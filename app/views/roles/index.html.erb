@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to new_role_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    Nuevo Role
+  <% end %>
+  <h4>Listado de  roles</h4>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Descripcion</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @roles) do |role| %>
+            <td><%= role.descripcion %></td>
+            <td><%= link_to 'Ver', role %></td>
+        <td><%= link_to 'Editar', edit_role_path(role) %></td>
+        <td><%= link_to 'Eliminar', role, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

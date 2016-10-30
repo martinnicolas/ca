@@ -1,0 +1,45 @@
+<div class="page-header">
+  <%= link_to users_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Volver
+  <% end %>
+  <%= link_to edit_user_path(@user), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Editar
+  <% end %>
+  <h4>Ver User</h4>
+</div>
+<ol class="breadcrumb">
+  <li>
+    <%= link_to users_path do %>
+        <%= fa_icon "user", text: "Users" %>
+    <% end %>
+  </li>
+  <li class="active">
+    Ver User
+  </li>
+</ol>
+
+<h4>User</h4>
+<dl class="dl-horizontal">
+  <dt>Email:</dt>
+  <dd><%= @user.email %></dd>
+  
+  <dt>Último acceso:</dt>
+  <dd><%= @user.last_sign_in_at %></dd>
+
+  <dt>IP último acceso:</dt>
+  <dd><%= @user.last_sign_in_ip %></dd>
+
+  <dt>Cantidad de accesos:</dt>
+  <dd><%= @user.sign_in_count %></dd>
+</dl>
+
+<h4>Roles</h4>
+<div class="col-sm-4">
+  <ul class="list-group">
+    <% @user.roles.each do |r|%>
+      <li class="list-group-item"><%= r.descripcion %></li>
+    <% end %>
+  </ul>
+</div>

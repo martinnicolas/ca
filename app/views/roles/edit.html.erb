@@ -1,0 +1,13 @@
+<div class="page-header">
+  <%= link_to roles_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Volver
+  <% end %>
+  <%= link_to @role, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Ver
+  <% end %>
+  <h4>Editando role</h4>
+</div>
+
+<%= render 'form' %>

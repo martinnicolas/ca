@@ -1,0 +1,4 @@
+<li class="list-group-item">
+	<%= check_box_tag "user[role_ids][]", current_role.id, @user.roles.include?(current_role), :disabled => current_role.eql?(@role) %>
+	<%= current_role.descripcion %>
+</li>

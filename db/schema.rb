@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614233413) do
+ActiveRecord::Schema.define(version: 20161030215642) do
 
   create_table "reclamo_usuarios", force: :cascade do |t|
     t.integer  "reclamo_id", limit: 4
@@ -39,6 +39,12 @@ ActiveRecord::Schema.define(version: 20160614233413) do
   add_index "reclamos", ["ubicacion_id"], name: "index_reclamos_on_ubicacion_id", using: :btree
   add_index "reclamos", ["user_id"], name: "index_reclamos_on_user_id", using: :btree
 
+  create_table "roles", force: :cascade do |t|
+    t.string   "descripcion", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
   create_table "tipo_reclamos", force: :cascade do |t|
     t.string   "nombre",     limit: 255
     t.datetime "created_at",             null: false
@@ -51,6 +57,16 @@ ActiveRecord::Schema.define(version: 20160614233413) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "user_roles", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "role_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "user_roles", ["role_id"], name: "index_user_roles_on_role_id", using: :btree
+  add_index "user_roles", ["user_id"], name: "index_user_roles_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -75,4 +91,6 @@ ActiveRecord::Schema.define(version: 20160614233413) do
   add_foreign_key "reclamos", "tipo_reclamos"
   add_foreign_key "reclamos", "ubicacions"
   add_foreign_key "reclamos", "users"
+  add_foreign_key "user_roles", "roles"
+  add_foreign_key "user_roles", "users"
 end

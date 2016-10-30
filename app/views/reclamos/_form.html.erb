@@ -79,7 +79,7 @@
 
     map = new google.maps.Map(document.getElementById("mapa_div"), myOptions);
 
-    <% if params[:id] != nil %>
+    <% if params[:action] == 'edit' %>
 
       feature = {
         title: '<%= @reclamo.titulo %>',

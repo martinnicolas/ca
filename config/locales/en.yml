@@ -21,3 +21,5 @@
 
 en:
   hello: "Hello world"
+  unauthorized:
+    default: "No está autorizado para acceder a esta página."

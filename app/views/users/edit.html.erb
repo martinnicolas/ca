@@ -1,0 +1,23 @@
+<div class="page-header">
+  <%= link_to users_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Volver
+  <% end %>
+  <%= link_to @user, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Ver
+  <% end %>
+  <h4>Editar User</h4>
+</div>
+<ol class="breadcrumb">
+  <li>
+    <%= link_to users_path do %>
+        <%= fa_icon "user", text: "Users" %>
+    <% end %>
+  </li>
+  <li class="active">
+    Editar User
+  </li>
+</ol>
+
+<%= render 'form' %>
