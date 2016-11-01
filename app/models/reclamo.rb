@@ -3,7 +3,7 @@ class Reclamo < ActiveRecord::Base
 
   belongs_to :ubicacion
   belongs_to :tipo_reclamo
-  belongs_to :user
+  belongs_to :user  
 
   def valoracion
   	ReclamoUsuario.where(:reclamo_id => self.id).count

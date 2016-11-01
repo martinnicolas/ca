@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   resources :users
   resources :roles
   resources :reclamos
-  resources :ubicacions
   resources :tipo_reclamos
   devise_for :users, :path => 'user'
   get 'index/index'

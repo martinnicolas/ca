@@ -5,5 +5,15 @@
   <% end %>
   <h4>Nuevo Tipo de Reclamo</h4>
 </div>
+<ol class="breadcrumb">
+  <li>
+    <%= link_to tipo_reclamos_path do %>
+        <%= fa_icon "file-o", text: "Tipos de reclamos" %>
+    <% end %>
+  </li>
+  <li class="active">
+    Nuevo Tipo de reclamo
+  </li>
+</ol>
 
 <%= render 'form' %>
