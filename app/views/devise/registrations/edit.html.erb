@@ -1,10 +1,9 @@
-<div class="page-header"><h4>Editar cuenta</h4></div>
-
-<ul class="nav nav-pills">
-  <li role="presentation"><%= link_to "Volver", :back %></li>
-</ul>
-
-<br/>
+<div class="page-header">
+  <%= link_to :back, class: 'btn btn-default' do %>
+    <%= fa_icon "mail-reply", text: "Volver" %>
+  <% end %>
+  <h4>Editar cuenta</h4>
+</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: "form", class: "form-horizontal", method: :put }) do |f| %>
   <%= devise_error_messages! %>

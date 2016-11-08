@@ -2,29 +2,30 @@ class TipoReclamosController < ApplicationController
   before_action :authenticate_user!
   before_action :set_tipo_reclamo, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
+  layout "dashboard"
   
-  # GET /roles
-  # GET /roles.json
+  # GET /tipo_reclamos
+  # GET /tipo_reclamos.json
   def index
     @tipo_reclamos = TipoReclamo.all
   end
 
-  # GET /roles/1
-  # GET /roles/1.json
+  # GET /tipo_reclamos/1
+  # GET /tipo_reclamos/1.json
   def show
   end
 
-  # GET /roles/new
+  # GET /tipo_reclamos/new
   def new
     @tipo_reclamo = TipoReclamo.new
   end
 
-  # GET /roles/1/edit
+  # GET /tipo_reclamos/1/edit
   def edit
   end
 
-  # POST /roles
-  # POST /roles.json
+  # POST /tipo_reclamos
+  # POST /tipo_reclamos.json
   def create
     @tipo_reclamo = TipoReclamo.new(tipo_reclamo_params)
 
@@ -39,8 +40,8 @@ class TipoReclamosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /roles/1
-  # PATCH/PUT /roles/1.json
+  # PATCH/PUT /tipo_reclamos/1
+  # PATCH/PUT /tipo_reclamos/1.json
   def update
     respond_to do |format|
       if @tipo_reclamo.update(tipo_reclamo_params)
@@ -53,8 +54,8 @@ class TipoReclamosController < ApplicationController
     end
   end
 
-  # DELETE /roles/1
-  # DELETE /roles/1.json
+  # DELETE /tipo_reclamos/1
+  # DELETE /tipo_reclamos/1.json
   def destroy
     @tipo_reclamo.destroy
     respond_to do |format|

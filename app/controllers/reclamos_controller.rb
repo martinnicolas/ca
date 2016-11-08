@@ -33,7 +33,7 @@ class ReclamosController < ApplicationController
   # POST /reclamos.json
   def create  	
     @reclamo = Reclamo.new(reclamo_params)
-    @reclamo.user_id = current_user.id #Relaciono al usuario conectado
+    @reclamo.user_id = current_user.id #Relaciono al usuario logueado
     ubicacion_params = params[:ubicacion]
     ubicacion = Ubicacion.new
     ubicacion.latitud = ubicacion_params[:latitud]

@@ -54,7 +54,7 @@
             <h4><%= reclamo.titulo%></h4>
             <p>
               <h4><span class="label label-success">
-                <span class="glyphicon glyphicon-thumbs-up"></span>
+                <%= fa_icon "thumbs-up" %>
                 <span class="badge"><%= reclamo.valoracion %></span>
                 </span>
               </h4>
@@ -62,7 +62,7 @@
             <p><%= reclamo.fecha.to_s(:default)%></p>              
             <p>                
               <%= link_to reclamo, class: 'btn btn-primary btn-block' do %>
-                <span class="glyphicon glyphicon-search"></span> Ver Reclamo
+                <%= fa_icon "search", text: "Ver Reclamo" %>
               <% end %>
             </p>
           </div>

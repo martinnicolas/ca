@@ -2,6 +2,7 @@ class RolesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_role, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
+  layout "dashboard"
 
   # GET /roles
   # GET /roles.json

@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+
   resources :users
   resources :roles
   resources :reclamos
   resources :tipo_reclamos
   devise_for :users, :path => 'user'
   get 'index/index'
-
+  get 'admin/index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   root 'index#index'
 
   get 'index' => 'index#index'
+  get 'admin' => 'admin#index'
   get 'reclamos/:id/valorar' => 'reclamos#valorar', as: :valorar
   get 'reclamos/:id/quitar_valor' => 'reclamos#quitar_valor', as: :quitar_valor
   # Example of regular route:
