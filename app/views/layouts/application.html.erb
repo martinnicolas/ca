@@ -79,7 +79,7 @@
                   </ul>
                 </li>                
                 <% if current_user.role? :admin %>
-                  <li>                      
+                  <li>      
                     <%= link_to admin_path do %>
                       <%= fa_icon "dashboard", text: "Administración" %>
                     <% end %>                      
