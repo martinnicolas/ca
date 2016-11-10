@@ -7,7 +7,14 @@ class TipoReclamosController < ApplicationController
   # GET /tipo_reclamos
   # GET /tipo_reclamos.json
   def index
-    @tipo_reclamos = TipoReclamo.all
+    @tipo_reclamos = TipoReclamo.all    
+    respond_to do |format|
+      format.html
+      format.pdf do
+          render pdf: "reporte_tipos_de_reclamo.pdf",          
+          template: "tipo_reclamos/reporte_tipos_de_reclamo.html.erb"
+      end
+    end
   end
 
   # GET /tipo_reclamos/1

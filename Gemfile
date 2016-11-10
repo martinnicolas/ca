@@ -27,31 +27,41 @@ gem 'therubyracer'
 
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 
+# ---------------------------
+# GEMAS PARA GESTIÓN DE PERFILES DE USUARIO
+# ---------------------------
 gem 'devise'
 
 gem 'cancancan'
 
+# ---------------------------
+# GEMAS PARA JQUERY DATEPICKERS
+# ---------------------------
 gem 'jquery-ui-rails'
 
 gem 'jquery_datepicker'
 
+# ---------------------------
+# GEMAS PARA PROCESAMIENTO DE IMÁGENES
+# ---------------------------
 gem 'carrierwave'
 
 gem 'mini_magick'
 
 # ---------------------------
-
-# GEMAS DE BOOTSTRAP
+# GEMAS PARA BOOTSTRAP
 # ---------------------------
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 
 gem 'bootstrap-generators', :git => 'git://github.com/decioferreira/bootstrap-generators.git'
 
+# ---------------------------
+# GEMA PARA FONTAWESOME
+# ---------------------------
 gem "font-awesome-rails"
 
 # ---------------------------
-
-# GEMAS DE DATATABLES
+# GEMAS PARA DATATABLES
 # ---------------------------
 gem 'jquery-datatables-rails', '3.1.1'
 
@@ -59,6 +69,17 @@ gem 'ajax-datatables-rails', github: 'antillas21/ajax-datatables-rails', branch:
 
 gem 'kaminari'
 
+# ---------------------------
+# GEMAS PARA GRÁFICOS
+# ---------------------------
+gem "chartkick"
+
+# ---------------------------
+# GEMAS PARA GENERAR REPORTES PDF
+# ---------------------------
+gem 'wicked_pdf'
+
+gem 'wkhtmltopdf-binary'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,0 +1,25 @@
+<div class="page-header">
+  <h4>Listado de Usuarios</h4>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Email</th>
+            <th>Último acceso</th>
+            <th>IP último acceso</th>
+            <th>Cantidad de accesos</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @users) do |user| %>
+      <td><%= user.email %></td>
+      <td><%= user.last_sign_in_at %></td>
+      <td><%= user.last_sign_in_ip %></td>
+      <td><%= user.sign_in_count %></td>     
+      <% end %>
+    </tbody>
+  </table>
+</div>

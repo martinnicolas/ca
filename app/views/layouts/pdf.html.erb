@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>PDF</title>
+  <%= wicked_pdf_stylesheet_link_tag 'pdf', media: 'all' %> <!-- No está funcionando!! -->
+</head>
+<body>
+  <div style="min-height:600px;" class="container">
+    <%= yield %>
+  </div>
+</body>
+</html>

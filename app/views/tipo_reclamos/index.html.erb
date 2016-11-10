@@ -1,7 +1,6 @@
 <div class="page-header">
   <%= link_to new_tipo_reclamo_path, class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-plus"></span>
-    Nuevo Tipo reclamo
+    <%= fa_icon "plus", text: "Nuevo tipo de reclamo" %>
   <% end %>
   <h4>Listado de  Tipos de Reclamos</h4>
 </div>
@@ -10,6 +9,12 @@
     <%= fa_icon "file-o", text: "Tipos de reclamos" %>
   </li>
 </ol>
+
+<div class="well">
+  <%= link_to "#{tipo_reclamos_path}.pdf", class: 'btn btn-danger' do %>
+    <%= fa_icon "file-pdf-o", text: "Exportar" %>
+  <% end %>
+</div>
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">

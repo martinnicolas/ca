@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#index'
   get 'reclamos/:id/valorar' => 'reclamos#valorar', as: :valorar
   get 'reclamos/:id/quitar_valor' => 'reclamos#quitar_valor', as: :quitar_valor
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

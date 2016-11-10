@@ -8,6 +8,13 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+          render pdf: "reporte_users.pdf",          
+          template: "users/reporte_users.html.erb"
+      end
+    end
   end
 
   # GET /users/1
