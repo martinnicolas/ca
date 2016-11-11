@@ -76,9 +76,14 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="<%= params['controller'] == 'admin' ? 'active' : ''%>">
+                    <li class="<%= params['controller'] == 'admin' && params['action'] ? 'active' : ''%>">
                         <%= link_to admin_path do %>
                             <%= fa_icon "dashboard", text: "Inicio" %>
+                        <% end %>
+                    </li>          
+                    <li class="<%= params['action'] == 'grafico_reportes' ? 'active' : ''%>">
+                        <%= link_to grafico_reportes_path do %>
+                            <%= fa_icon "bullhorn", text: "Reclamos" %>
                         <% end %>
                     </li>          
                     <li class="<%= params['controller'] == 'tipo_reclamos' ? 'active' : ''%>">

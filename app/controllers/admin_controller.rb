@@ -5,4 +5,8 @@ class AdminController < ApplicationController
 
   def index
   end
+
+  def grafico_reportes
+  	@reclamos = Reclamo.joins(:tipo_reclamo).group('tipo_reclamos.nombre').count
+  end
 end

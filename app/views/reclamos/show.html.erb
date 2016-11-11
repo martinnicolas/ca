@@ -26,7 +26,9 @@
 <div class="col-sm-8">
 <% end %>  
 <div class="panel panel-default">
-  <div class="panel-heading"><b><%= @reclamo.user.email %></b></div>
+  <div class="panel-heading">
+    <%= fa_icon "user" %> <b><%= @reclamo.user.email %></b>
+  </div>
   <div class="panel-body">
     <div class="col-sm-6">  
       <div class="thumbnail">
