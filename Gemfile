@@ -81,6 +81,11 @@ gem 'wicked_pdf'
 
 gem 'wkhtmltopdf-binary'
 
+# ---------------------------
+# GEMAS PARA AGRUPAR MINUTO, HORA, DIA ETC.
+# ---------------------------
+gem 'groupdate'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

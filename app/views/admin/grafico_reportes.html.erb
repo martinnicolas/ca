@@ -1,2 +1,17 @@
-
-<%= pie_chart @reclamos %>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><%= fa_icon "pie-chart", text: "Reclamos por tipo" %></h3>
+			</div>
+			<div class="panel-body">
+				<%= pie_chart @reclamos_por_tipo %>
+				<div class="text-right">
+					<%= link_to grafico_reportes_path do %>
+    					<%= fa_icon "arrow-circle-right", text: "Ver Detalles" %>
+  					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
