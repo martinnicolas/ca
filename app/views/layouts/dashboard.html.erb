@@ -81,14 +81,14 @@
                             <%= fa_icon "dashboard", text: "Inicio" %>
                         <% end %>
                     </li>          
-                    <li class="<%= params['action'] == 'grafico_reportes' ? 'active' : ''%>">
-                        <%= link_to grafico_reportes_path do %>
+                    <li class="<%= params['action'] == 'grafico_reclamos' ? 'active' : ''%>">
+                        <%= link_to grafico_reclamos_path do %>
                             <%= fa_icon "bullhorn", text: "Reclamos" %>
                         <% end %>
                     </li>          
                     <li class="<%= params['controller'] == 'tipo_reclamos' ? 'active' : ''%>">
                         <%= link_to tipo_reclamos_path do %>
-                            <%= fa_icon "file-o", text: "Tipos de reclamos" %>
+                            <%= fa_icon "wpforms", text: "Tipos de reclamos" %>
                         <% end %>
                     </li>          
                     <li class="<%= params['controller'] == 'users' ? 'active' : ''%>">

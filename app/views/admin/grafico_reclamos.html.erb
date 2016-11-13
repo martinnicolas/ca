@@ -1,3 +1,11 @@
+<div class="page-header">
+  <h4>Reclamos</h4>
+</div>
+<ol class="breadcrumb">
+  <li class="active">
+    <%= fa_icon "bullhorn", text: "Reclamos" %>
+  </li>
+</ol>
 <div class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
@@ -7,7 +15,7 @@
 			<div class="panel-body">
 				<%= pie_chart @reclamos_por_tipo %>
 				<div class="text-right">
-					<%= link_to grafico_reportes_path do %>
+					<%= link_to admin_path do %>
     					<%= fa_icon "arrow-circle-right", text: "Ver Detalles" %>
   					<% end %>
 				</div>
