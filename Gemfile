@@ -30,7 +30,7 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 # ---------------------------
 # GEMAS PARA GESTIÓN DE PERFILES DE USUARIO
 # ---------------------------
-gem 'devise'
+gem 'devise', '4.1.1'
 
 gem 'cancancan'
 

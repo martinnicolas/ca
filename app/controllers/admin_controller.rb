@@ -3,7 +3,7 @@ class AdminController < ApplicationController
   load_and_authorize_resource :class => AdminController
   layout "dashboard"
 
-  def index	  	
+  def index	
   	@reclamos_por_dia = Reclamo.group_by_day(:fecha,  format: "%d %b %Y").count
   end
 
