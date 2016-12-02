@@ -32,6 +32,13 @@ $('#reclamos-table').dataTable({
     processing: true,
     serverSide: true,
     ajax: $('#reclamos-table').data('source'),
-    pagingType: 'full_numbers'    
+    pagingType: 'full_numbers',
+    columnDefs: [
+            {
+                "targets": [ 4 ],
+                "searchable": false,
+                "orderable": false
+            }
+        ]
 });
 </script>

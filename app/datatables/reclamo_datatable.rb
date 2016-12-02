@@ -44,5 +44,10 @@ class ReclamoDatatable < AjaxDatatablesRails::Base
     return Reclamo.joins(:tipo_reclamo).where(:user_id => current_user.id)
   end
 
+  #def sort_records(records)
+  #  debugger
+  #
+  #end
+
   # ==== Insert 'presenter'-like methods below if necessary
 end
