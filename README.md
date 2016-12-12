@@ -1,4 +1,4 @@
-# Ciudad Activa
+# Ciudad Activa https://img.shields.io/badge/build-passing-brightgreen.svg
 
 * Ruby 2.2.1
 * Rails 4.2.4
