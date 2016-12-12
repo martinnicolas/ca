@@ -19,5 +19,4 @@ Time zone support para el uso de la gema groupdate
 
 ###Code Status
 
-![alt tag] (https://img.shields.io/teamcity/http/teamcity.jetbrains.com/s/bt345.svg)
-[![TeamCity (simple build status)](https://img.shields.io/teamcity/http/teamcity.jetbrains.com/s/bt345.svg?style=plastic)](http://ca-sgm1.rhcloud.com/)
+[![TeamCity (simple build status)](https://img.shields.io/teamcity/http/teamcity.jetbrains.com/s/bt345.svg)](http://ca-sgm1.rhcloud.com/)
