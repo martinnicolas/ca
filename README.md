@@ -1,5 +1,5 @@
 # Ciudad Activa 
-https://img.shields.io/teamcity/http/teamcity.jetbrains.com/s/bt345.svg
+![alt tag] https://img.shields.io/teamcity/http/teamcity.jetbrains.com/s/bt345.svg
 
 * Ruby 2.2.1
 * Rails 4.2.4
