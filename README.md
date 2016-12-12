@@ -5,6 +5,7 @@
 * MySQL 5.5
 
 
+
 ###Requisitos
 
 Minimagick para procesamiento de imágenes cargadas por el usuario
