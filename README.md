@@ -8,6 +8,7 @@
 
 ###Requisitos
 
+
 Minimagick para procesamiento de imágenes cargadas por el usuario
 	
 	sudo apt-get install minimagick
@@ -18,5 +19,6 @@ Time zone support para el uso de la gema groupdate
 
 
 ###Code Status
+
 
 ![alt tag] (https://img.shields.io/teamcity/http/teamcity.jetbrains.com/s/bt345.svg)
