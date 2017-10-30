@@ -12,7 +12,7 @@
 
 Minimagick para procesamiento de imágenes cargadas por el usuario
 	
-	sudo apt-get install minimagick
+	sudo apt-get install imagemagick
 
 Time zone support para el uso de la gema groupdate
 	
