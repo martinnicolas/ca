@@ -38,7 +38,7 @@ gem 'cancancan'
 # ---------------------------
 gem 'jquery-ui-rails'
 
-gem 'jquery_datepicker'
+#gem 'jquery_datepicker'
 
 # ---------------------------
 # GEMAS PARA PROCESAMIENTO DE IMÁGENES
