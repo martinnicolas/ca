@@ -12,6 +12,6 @@ class User < ActiveRecord::Base
   end
 
   def role?(role)
-    return self.roles.find_by(descripcion: role.to_s.camelize)
+    return self.roles.find_by(descripcion: role.to_s)
   end
 end
