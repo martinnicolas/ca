@@ -33,7 +33,7 @@
 
     <!-- For all other devices -->
     <!-- Size should be 32 x 32 pixels -->
-    <%= favicon_link_tag 'logo.png', :rel => 'shortcut icon' %>
+    <%= favicon_link_tag 'logot.png', :rel => 'shortcut icon' %>
 
     <%= javascript_include_tag "application", 'data-turbolinks-track' => false %>
 
@@ -102,16 +102,19 @@
     <footer class="footer"> 
       <div class="container"> 
         <div class="row"> 
-          <div class="col-sm-6 text-left"> 
+          <div class="col-sm-2"> 
+            <%= image_tag("logot.png", height: '100', width: '100') %>
+          </div>
+          <div class="col-sm-7 text-left"> 
             <h1>Ciudad Activa</h1> 
             <p>
               Ciudad Activa es una comunidad de usuarios abierta, una herramienta 
-              para reclamar a sus funcionarios por una ciudad mejor 
+              para reclamar a sus funcionarios por una ciudad mejor. 
               <br>
               Ver Términos de usos y condiciones.
             </p>
-        </div>
-        <div class="col-sm-6"> 
+          </div>
+        <div class="col-sm-3"> 
         <p class="text-info text-right"> 
           <br>
           <br>
