@@ -1,6 +1,6 @@
 # Ciudad Activa 
 
-[![Wercker](https://img.shields.io/wercker/ci/wercker/docs.svg)](http://ca-sgm1.rhcloud.com/) [![Wercker](https://img.shields.io/github/license/mashape/apistatus.svg)](http://ca-sgm1.rhcloud.com/)
+[![Build Status](https://travis-ci.org/martinnicolas/ca.svg?branch=mysql_branch)](https://travis-ci.org/martinnicolas/ca) [![Wercker](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
 
 
 * Ruby 2.2.1
@@ -10,7 +10,7 @@
 
 ### Requisitos
 
-Minimagick para procesamiento de imágenes cargadas por el usuario
+Imagemagick para procesamiento de imágenes cargadas por el usuario
 	
 	sudo apt-get install imagemagick
 
