@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class ReclamosControllerTest < ActionController::TestCase
+  include Devise::Test::ControllerHelpers
+  
   setup do
     @reclamo = reclamos(:one)
   end
