@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class TipoReclamosControllerTest < ActionController::TestCase
-  include Devise::Test::ControllerHelpers
+  include Devise::TestHelpers
   
   setup do
     @tipo_reclamo = tipo_reclamos(:one)
