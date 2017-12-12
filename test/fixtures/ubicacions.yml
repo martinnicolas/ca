@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  latitud: MyString
-  longitud: MyString
+  latitud: -43.296344
+  longitud: -65.09196
 
 two:
-  latitud: MyString
-  longitud: MyString
+  latitud: -43.20034488
+  longitud: -65.09456196
