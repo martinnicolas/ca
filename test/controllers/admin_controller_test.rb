@@ -4,8 +4,11 @@ class AdminControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   
   test "should get index" do
-  	sign_in @user
-	sign_in @user, scope: :admin
+  	# Mimic the router behavior of setting the Devise scope through the env.
+  	@request.env['devise.mapping'] = Devise.mappings[:user]
+
+  	# Use the sign_in helper to sign in a fixture `User` record.
+  	sign_in users(:alice), scope: :admin
     get :index
     assert_response :success
   end
