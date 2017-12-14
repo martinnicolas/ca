@@ -8,7 +8,7 @@ class AdminControllerTest < ActionController::TestCase
   	@request.env['devise.mapping'] = Devise.mappings[:user]
 
   	# Use the sign_in helper to sign in a fixture `User` record.
-  	sign_in users(:alice), scope: :admin
+  	sign_in users("admin@admin.com"), scope: :admin
     get :index
     assert_response :success
   end
