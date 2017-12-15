@@ -12,7 +12,7 @@ class TipoReclamosControllerTest < ActionController::TestCase
     @request.env['devise.mapping'] = Devise.mappings[:user]
 
     # Use the sign_in helper to sign in a fixture `User` record.
-    sign_in users("admin@admin.com"), scope: :admin
+    sign_in users(:two), scope: :admin
     get :index
     assert_response :success
     assert_not_nil assigns(:tipo_reclamos)
@@ -23,7 +23,7 @@ class TipoReclamosControllerTest < ActionController::TestCase
     @request.env['devise.mapping'] = Devise.mappings[:user]
 
     # Use the sign_in helper to sign in a fixture `User` record.
-    sign_in users("admin@admin.com"), scope: :admin
+    sign_in users(:two), scope: :admin
     get :new
     assert_response :success
   end
@@ -33,7 +33,7 @@ class TipoReclamosControllerTest < ActionController::TestCase
     @request.env['devise.mapping'] = Devise.mappings[:user]
 
     # Use the sign_in helper to sign in a fixture `User` record.
-    sign_in users("admin@admin.com"), scope: :admin
+    sign_in users(:two), scope: :admin
     assert_difference('TipoReclamo.count') do
       post :create, tipo_reclamo: { nombre: @tipo_reclamo.nombre }
     end
@@ -46,7 +46,7 @@ class TipoReclamosControllerTest < ActionController::TestCase
     @request.env['devise.mapping'] = Devise.mappings[:user]
 
     # Use the sign_in helper to sign in a fixture `User` record.
-    sign_in users("admin@admin.com"), scope: :admin
+    sign_in users(:two), scope: :admin
     get :show, id: @tipo_reclamo
     assert_response :success
   end
@@ -56,7 +56,7 @@ class TipoReclamosControllerTest < ActionController::TestCase
     @request.env['devise.mapping'] = Devise.mappings[:user]
 
     # Use the sign_in helper to sign in a fixture `User` record.
-    sign_in users("admin@admin.com"), scope: :admin
+    sign_in users(:two), scope: :admin
     get :edit, id: @tipo_reclamo
     assert_response :success
   end
@@ -66,7 +66,7 @@ class TipoReclamosControllerTest < ActionController::TestCase
     @request.env['devise.mapping'] = Devise.mappings[:user]
 
     # Use the sign_in helper to sign in a fixture `User` record.
-    sign_in users("admin@admin.com"), scope: :admin
+    sign_in users(:two), scope: :admin
     patch :update, id: @tipo_reclamo, tipo_reclamo: { nombre: @tipo_reclamo.nombre }
     assert_redirected_to tipo_reclamo_path(assigns(:tipo_reclamo))
   end
@@ -76,7 +76,7 @@ class TipoReclamosControllerTest < ActionController::TestCase
     @request.env['devise.mapping'] = Devise.mappings[:user]
 
     # Use the sign_in helper to sign in a fixture `User` record.
-    sign_in users("admin@admin.com"), scope: :admin
+    sign_in users(:two), scope: :admin
     assert_difference('TipoReclamo.count', -1) do
       delete :destroy, id: @tipo_reclamo
     end
