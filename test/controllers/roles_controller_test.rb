@@ -8,17 +8,32 @@ class RolesControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
+    # Mimic the router behavior of setting the Devise scope through the env.
+    @request.env['devise.mapping'] = Devise.mappings[:user]
+
+    # Use the sign_in helper to sign in a fixture `User` record.
+    sign_in users("admin@admin.com"), scope: :admin
     get :index
     assert_response :success
     assert_not_nil assigns(:roles)
   end
 
   test "should get new" do
+    # Mimic the router behavior of setting the Devise scope through the env.
+    @request.env['devise.mapping'] = Devise.mappings[:user]
+
+    # Use the sign_in helper to sign in a fixture `User` record.
+    sign_in users("admin@admin.com"), scope: :admin
     get :new
     assert_response :success
   end
 
   test "should create role" do
+    # Mimic the router behavior of setting the Devise scope through the env.
+    @request.env['devise.mapping'] = Devise.mappings[:user]
+
+    # Use the sign_in helper to sign in a fixture `User` record.
+    sign_in users("admin@admin.com"), scope: :admin
     assert_difference('Role.count') do
       post :create, role: { descripcion: @role.descripcion }
     end
@@ -27,21 +42,41 @@ class RolesControllerTest < ActionController::TestCase
   end
 
   test "should show role" do
+    # Mimic the router behavior of setting the Devise scope through the env.
+    @request.env['devise.mapping'] = Devise.mappings[:user]
+
+    # Use the sign_in helper to sign in a fixture `User` record.
+    sign_in users("admin@admin.com"), scope: :admin
     get :show, id: @role
     assert_response :success
   end
 
   test "should get edit" do
+    # Mimic the router behavior of setting the Devise scope through the env.
+    @request.env['devise.mapping'] = Devise.mappings[:user]
+
+    # Use the sign_in helper to sign in a fixture `User` record.
+    sign_in users("admin@admin.com"), scope: :admin
     get :edit, id: @role
     assert_response :success
   end
 
   test "should update role" do
+    # Mimic the router behavior of setting the Devise scope through the env.
+    @request.env['devise.mapping'] = Devise.mappings[:user]
+
+    # Use the sign_in helper to sign in a fixture `User` record.
+    sign_in users("admin@admin.com"), scope: :admin
     patch :update, id: @role, role: { descripcion: @role.descripcion }
     assert_redirected_to role_path(assigns(:role))
   end
 
   test "should destroy role" do
+    # Mimic the router behavior of setting the Devise scope through the env.
+    @request.env['devise.mapping'] = Devise.mappings[:user]
+
+    # Use the sign_in helper to sign in a fixture `User` record.
+    sign_in users("admin@admin.com"), scope: :admin
     assert_difference('Role.count', -1) do
       delete :destroy, id: @role
     end
