@@ -12,7 +12,7 @@ class RolesControllerTest < ActionController::TestCase
     @request.env['devise.mapping'] = Devise.mappings[:user]
 
     # Use the sign_in helper to sign in a fixture `User` record.
-    sign_in users(:two), scope: :admin
+    sign_in users(:two)
     get :index
     assert_response :success
     assert_not_nil assigns(:roles)
@@ -23,7 +23,7 @@ class RolesControllerTest < ActionController::TestCase
     @request.env['devise.mapping'] = Devise.mappings[:user]
 
     # Use the sign_in helper to sign in a fixture `User` record.
-    sign_in users(:two), scope: :admin
+    sign_in users(:two)
     get :new
     assert_response :success
   end
@@ -33,7 +33,7 @@ class RolesControllerTest < ActionController::TestCase
     @request.env['devise.mapping'] = Devise.mappings[:user]
 
     # Use the sign_in helper to sign in a fixture `User` record.
-    sign_in users(:two), scope: :admin
+    sign_in users(:two)
     assert_difference('Role.count') do
       post :create, role: { descripcion: @role.descripcion }
     end
@@ -46,7 +46,7 @@ class RolesControllerTest < ActionController::TestCase
     @request.env['devise.mapping'] = Devise.mappings[:user]
 
     # Use the sign_in helper to sign in a fixture `User` record.
-    sign_in users(:two), scope: :admin
+    sign_in users(:two)
     get :show, id: @role
     assert_response :success
   end
@@ -56,7 +56,7 @@ class RolesControllerTest < ActionController::TestCase
     @request.env['devise.mapping'] = Devise.mappings[:user]
 
     # Use the sign_in helper to sign in a fixture `User` record.
-    sign_in users(:two), scope: :admin
+    sign_in users(:two)
     get :edit, id: @role
     assert_response :success
   end
@@ -66,7 +66,7 @@ class RolesControllerTest < ActionController::TestCase
     @request.env['devise.mapping'] = Devise.mappings[:user]
 
     # Use the sign_in helper to sign in a fixture `User` record.
-    sign_in users(:two), scope: :admin
+    sign_in users(:two)
     patch :update, id: @role, role: { descripcion: @role.descripcion }
     assert_redirected_to role_path(assigns(:role))
   end
@@ -76,7 +76,7 @@ class RolesControllerTest < ActionController::TestCase
     @request.env['devise.mapping'] = Devise.mappings[:user]
 
     # Use the sign_in helper to sign in a fixture `User` record.
-    sign_in users(:two), scope: :admin
+    sign_in users(:two)
     assert_difference('Role.count', -1) do
       delete :destroy, id: @role
     end
