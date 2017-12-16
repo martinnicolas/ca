@@ -1,8 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   nombre: SEGURIDAD
 
 two:
+  id: 2
   nombre: ESPACIOS VERDES
   
