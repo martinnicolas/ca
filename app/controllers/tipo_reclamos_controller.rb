@@ -64,12 +64,9 @@ class TipoReclamosController < ApplicationController
   # DELETE /tipo_reclamos/1
   # DELETE /tipo_reclamos/1.json
   def destroy
-    @reclamos = Reclamo.where(tipo_reclamo_id: @tipo_reclamo.id)
-    if !@reclamos.empty?
+    reclamos = Reclamo.where(tipo_reclamo_id: @tipo_reclamo.id)
+    if reclamos.empty?      
       @tipo_reclamo.destroy
-      mensaje = "El tipo de reclamo tiene reclamos asociados!"
-    else
-      mensaje = "Se ha eliminado el Tipo de reclamo"
     end
     respond_to do |format|
       format.html { redirect_to tipo_reclamos_url, notice: 'Se ha eliminado el Tipo de reclamo.' }

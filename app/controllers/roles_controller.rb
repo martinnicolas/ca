@@ -57,12 +57,9 @@ class RolesController < ApplicationController
   # DELETE /roles/1
   # DELETE /roles/1.json
   def destroy
-    @users = UserRole.where(tipo_reclamo_id: @role.id)
-    if !@users.empty?
+    users = UserRole.where(role_id: @role.id)
+    if users.empty?      
       @role.destroy
-      mensaje = "El rol tiene usuarios asociados!"
-    else
-      mensaje = "Se ha eliminado el rol"
     end
     respond_to do |format|
       format.html { redirect_to roles_url, notice: 'Role was successfully destroyed.' }
