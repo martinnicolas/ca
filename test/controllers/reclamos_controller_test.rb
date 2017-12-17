@@ -35,7 +35,7 @@ class ReclamosControllerTest < ActionController::TestCase
     # Use the sign_in helper to sign in a fixture `User` record.
     sign_in users(:one)
     assert_difference('Reclamo.count') do
-      post :create, reclamo: { descripcion: @reclamo.descripcion, fecha: @reclamo.fecha, imagen: @reclamo.imagen, tipo_reclamo_id: @reclamo.tipo_reclamo_id, titulo: @reclamo.titulo, ubicacion: @ubicacion.ubicacion_id, user_id: @reclamo.user_id }
+      post :create, reclamo: { descripcion: @reclamo.descripcion, fecha: @reclamo.fecha, imagen: @reclamo.imagen, tipo_reclamo_id: @reclamo.tipo_reclamo_id, titulo: @reclamo.titulo, ubicacion: @reclamo.ubicacion_id, user_id: @reclamo.user_id }
     end
 
     assert_redirected_to reclamo_path(assigns(:reclamo))
