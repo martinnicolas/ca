@@ -77,8 +77,8 @@ class TipoReclamosControllerTest < ActionController::TestCase
 
     # Use the sign_in helper to sign in a fixture `User` record.
     sign_in users(:two)
-    @reclamos = Reclamo.where(tipo_reclamo: @tipo_reclamo.id)
-    if !@reclamos.empty?
+    reclamos = Reclamo.where(tipo_reclamo: @tipo_reclamo.id)
+    if !reclamos.empty?
       assert_difference('TipoReclamo.count', -1) do
         delete :destroy, id: @tipo_reclamo
       end
