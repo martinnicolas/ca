@@ -1,7 +1,7 @@
 language: ruby
 rvm:
   - 2.2.1
-  - 2.2.1-p85
+  - 2.2.1-p85 --create
 services:
   - postgresql
 before_script:
