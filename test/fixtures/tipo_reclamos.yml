@@ -7,4 +7,8 @@ one:
 two:
   id: 2
   nombre: ESPACIOS VERDES
+
+three:
+  id: 3
+  nombre: TIPO OBSOLETO
   

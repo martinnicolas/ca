@@ -4,7 +4,7 @@ class RolesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    @role = roles(:one)
+    @role = roles(:three)
   end
 
   test "should get index" do
@@ -77,11 +77,8 @@ class RolesControllerTest < ActionController::TestCase
 
     # Use the sign_in helper to sign in a fixture `User` record.
     sign_in users(:two)
-    users = UserRole.where(role_id: @role.id)
-    if users.empty?
-      assert_difference('Role.count', -1) do
-        delete :destroy, id: @role
-      end
+    assert_difference('Role.count', -1) do
+      delete :destroy, id: @role
     end
 
     assert_redirected_to roles_path

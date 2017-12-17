@@ -4,7 +4,7 @@ class TipoReclamosControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   
   setup do
-    @tipo_reclamo = tipo_reclamos(:one)
+    @tipo_reclamo = tipo_reclamos(:three)
   end
 
   test "should get index" do
@@ -77,11 +77,8 @@ class TipoReclamosControllerTest < ActionController::TestCase
 
     # Use the sign_in helper to sign in a fixture `User` record.
     sign_in users(:two)
-    reclamos = Reclamo.where(tipo_reclamo_id: @tipo_reclamo.id)
-    if reclamos.empty?
-      assert_difference('TipoReclamo.count', -1) do
-        delete :destroy, id: @tipo_reclamo
-      end
+    assert_difference('TipoReclamo.count', -1) do
+      delete :destroy, id: @tipo_reclamo
     end
 
     assert_redirected_to tipo_reclamos_path

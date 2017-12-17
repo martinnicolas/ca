@@ -7,3 +7,7 @@ one:
 two:
   id: 2
   descripcion: admin
+
+three:
+  id: 3
+  descripcion: rol obsoleto
