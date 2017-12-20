@@ -10,7 +10,7 @@
 
 ### Requisitos
 
-Minimagick para procesamiento de imágenes cargadas por el usuario
+Imagemagick para procesamiento de imágenes cargadas por el usuario
 	
 	sudo apt-get install imagemagick
 
