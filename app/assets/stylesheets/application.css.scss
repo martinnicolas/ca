@@ -34,12 +34,16 @@ body {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-  background-color: #337ab7;
+  background-color: #00937F;
   text-align: center;
 }
 
 .footer .text-muted{
   color: #FFFFFF;
+}
+
+.footer small{
+  color: #FFFFFF;   
 }
 
 
@@ -116,19 +120,19 @@ code {
     margin-left: 10px;
     padding: 20px 15px 15px 45px;
     line-height: 10px;
-    background: url('logo_chico.png') left center no-repeat;
+    background: image-url('logot_chico.png') left center no-repeat;
 }
 
 .navbar-inverse {
-  background-color: #337ab7;
-  border-color: #3f97e3;
+  background-color: #00937F;
+  border-color: #58C9A0;
 }
 .navbar-inverse .navbar-brand {
   color: #f7f9fb;
 }
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
-  color: #cee4f7;
+  color: #F7F9FB;
 }
 .navbar-inverse .navbar-text {
   color: #f7f9fb;
@@ -138,26 +142,26 @@ code {
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #cee4f7;
+  color: #F7F9FB;
 }
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
-  color: #cee4f7;
-  background-color: #3f97e3;
+  color: #F7F9FB;
+  background-color: #58C9A0;
 }
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
-  color: #cee4f7;
-  background-color: #3f97e3;
+  color: #F7F9FB;
+  background-color: #58C9A0;
 }
 .navbar-inverse .navbar-toggle {
-  border-color: #3f97e3;
+  border-color: #58C9A0;
 }
 .navbar-inverse .navbar-toggle:hover,
 .navbar-inverse .navbar-toggle:focus {
-  background-color: #3f97e3;  
+  background-color: #58C9A0 
 }
 .navbar-inverse .navbar-toggle .icon-bar {
   background-color: #f7f9fb;
@@ -170,7 +174,7 @@ code {
   color: #f7f9fb;
 }
 .navbar-inverse .navbar-link:hover {
-  color: #cee4f7;
+  color: #F7F9FB;
 }
 
 @media (max-width: 767px) {
@@ -179,13 +183,13 @@ code {
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #cee4f7;
+    color: #F7F9FB;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a,
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #cee4f7;
-    background-color: #3f97e3;
+    color: #F7F9FB;
+    background-color: #58C9A0;
   }
 }
 
@@ -208,7 +212,7 @@ code {
   bottom: 0;
   width: 100%;
   height: inherit;
-  background-color: #337ab7 !important;
+  background-color: #00937F !important;
   color: #FFFFFF;
   padding: 35px 20px;
   display: block;

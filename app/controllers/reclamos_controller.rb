@@ -54,9 +54,9 @@ class ReclamosController < ApplicationController
 
   # PATCH/PUT /reclamos/1
   # PATCH/PUT /reclamos/1.json
-  def update  
+  def update
     ubicacion_params = params[:ubicacion]
-    ubicacion = Reclamo.find(params[:id]).ubicacion
+    ubicacion = Reclamo.find(params[:id]).ubicacion    
     ubicacion.latitud = ubicacion_params[:latitud]
     ubicacion.longitud = ubicacion_params[:longitud]
     ubicacion.save

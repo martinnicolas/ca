@@ -1,7 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  descripcion: MyString
+  id: 1
+  descripcion: usuario
 
 two:
-  descripcion: MyString
+  id: 2
+  descripcion: admin
+
+three:
+  id: 3
+  descripcion: rol obsoleto

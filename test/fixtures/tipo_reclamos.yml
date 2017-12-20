@@ -1,7 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nombre: MyString
+  id: 1
+  nombre: SEGURIDAD
 
 two:
-  nombre: MyString
+  id: 2
+  nombre: ESPACIOS VERDES
+
+three:
+  id: 3
+  nombre: TIPO OBSOLETO
+  

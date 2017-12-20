@@ -57,7 +57,10 @@ class RolesController < ApplicationController
   # DELETE /roles/1
   # DELETE /roles/1.json
   def destroy
-    @role.destroy
+    users = UserRole.where(role_id: @role.id)
+    if users.empty?      
+      @role.destroy
+    end
     respond_to do |format|
       format.html { redirect_to roles_url, notice: 'Role was successfully destroyed.' }
       format.json { head :no_content }

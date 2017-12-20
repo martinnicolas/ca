@@ -1,4 +1,9 @@
 language: ruby
 rvm:
-  - 2.2.1
-  - 2.2.1-p85
+  - 2.2
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database ca_test;' -U postgres
+addons:
+  postgresql: "9.5"
