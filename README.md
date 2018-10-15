@@ -1,6 +1,6 @@
 # Ciudad Activa 
 
-[![Build Status](https://travis-ci.org/martinnicolas/ca.svg?branch=postgresql_branch)](https://travis-ci.org/martinnicolas/ca) [![Wercker](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.org/martinnicolas/ca.svg?branch=master)](https://travis-ci.org/martinnicolas/ca) [![Wercker](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
 
 
 * Ruby 2.2.1
