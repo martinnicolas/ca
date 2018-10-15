@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: ciudadactiva
+  api_key: '425686713973998'
+  api_secret: pKlq3deUVZDFK1K_DtDakI5q_3k
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: ciudadactiva
+  api_key: '425686713973998'
+  api_secret: pKlq3deUVZDFK1K_DtDakI5q_3k
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: ciudadactiva
+  api_key: '425686713973998'
+  api_secret: pKlq3deUVZDFK1K_DtDakI5q_3k
+  enhance_image_tag: true
+  static_image_support: false

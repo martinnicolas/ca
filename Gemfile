@@ -45,6 +45,8 @@ gem 'jquery-ui-rails'
 # ---------------------------
 gem 'carrierwave'
 
+gem 'cloudinary'
+
 gem 'mini_magick'
 
 # ---------------------------
@@ -109,5 +111,5 @@ end
 
 gem 'rails_12factor', group: :production
 
-ruby "2.2.7"
+ruby "2.2.1"
 
