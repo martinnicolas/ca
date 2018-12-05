@@ -8,7 +8,7 @@ class ReclamosController < ApplicationController
     @reclamos = Reclamo.where(:user_id => current_user.id).includes(:tipo_reclamo)
     respond_to do |format|
       format.html
-      format.json { render json: ReclamoDatatable.new(view_context,{current_user: current_user}) }
+      format.json { render json: ReclamoDatatable.new(params, current_user: current_user, view_context: view_context) }
     end
   end
 

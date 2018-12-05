@@ -64,9 +64,9 @@ gem "font-awesome-rails"
 # ---------------------------
 # GEMAS PARA DATATABLES
 # ---------------------------
-gem 'jquery-datatables-rails', '3.1.1'
+gem 'jquery-datatables-rails', '~> 3.4.0'
 
-gem 'ajax-datatables-rails', github: 'antillas21/ajax-datatables-rails', branch: 'master'
+gem 'ajax-datatables-rails'
 
 gem 'kaminari'
 
@@ -111,5 +111,5 @@ end
 
 gem 'rails_12factor', group: :production
 
-ruby "2.2.7"
+ruby "2.2.1"
 

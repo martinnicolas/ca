@@ -7,14 +7,14 @@
 
 <% if !@reclamos.empty? %>
 
-  <table class="table table-striped table-bordered table-hover" id="reclamos-table" data-source="<%= reclamos_path(format: :json) %>">
+  <table class="display responsive no-wrap" id="reclamos-table" data-source="<%= reclamos_path(format: :json) %>">
     <thead>
       <tr>
           <th>Título</th>
           <th>Descripción</th>
           <th>Fecha</th>
-          <th style="width: 150px;">Tipo de Reclamo</th>
-          <th class="text-center col-md-1">Acciones</th>
+          <th>Tipo de Reclamo</th>
+          <th>Acciones</th>
       </tr>
     </thead>
 
@@ -28,12 +28,20 @@
 
 <script type="text/javascript">
 $('#reclamos-table').dataTable({
+    responsive: true,
     language: { "sUrl": "<%= asset_path('language.es.json') %>"},
     processing: true,
     serverSide: true,
     ajax: $('#reclamos-table').data('source'),
     pagingType: 'full_numbers',
-    columnDefs: [
+    columns: [
+        {data: 'titulo' },
+        {data: 'descripcion' },
+        {data: 'fecha' },
+        {data: 'nombre' },
+        {data: 'acciones' }
+      ],
+     columnDefs: [
             {
                 "targets": [ 4 ],
                 "searchable": false,
