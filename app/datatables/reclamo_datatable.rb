@@ -9,7 +9,7 @@ class ReclamoDatatable < AjaxDatatablesRails::ActiveRecord
       descripcion: { source: "Reclamo.descripcion", cond: :like },
       fecha:       { source: "Reclamo.fecha", cond: :like },
       nombre:      { source: "TipoReclamo.nombre", cond: :like },
-      acciones:    { source: "Reclamo.id" }
+      dt_actions:  { source: "Reclamo.id" }
     }
   end
 
@@ -27,7 +27,7 @@ class ReclamoDatatable < AjaxDatatablesRails::ActiveRecord
         descripcion: record.descripcion,
         fecha: record.fecha.to_s(:default),
         nombre: record.tipo_reclamo.to_s,
-        acciones: link_to('Ver', reclamo_path(record), :class => 'btn btn-sm btn-default')
+        dt_actions: record.decorate.dt_actions,        
         # comma separated list of the values for each cell of a table row
         # example: record.attribute,
       }

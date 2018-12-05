@@ -1,5 +1,5 @@
 <div class="page-header">
-  <%= link_to new_reclamo_path, class: 'btn btn-primary' do %>
+  <%= link_to new_reclamo_path, class: 'btn btn-sm btn-primary' do %>
     <%= fa_icon "plus", text: "Nuevo Reclamo" %>
   <% end %>
   <h4>Mis reclamos</h4>
@@ -14,7 +14,7 @@
           <th>Descripción</th>
           <th>Fecha</th>
           <th>Tipo de Reclamo</th>
-          <th>Acciones</th>
+          <th>&nbsp;</th>
       </tr>
     </thead>
 
@@ -39,7 +39,7 @@ $('#reclamos-table').dataTable({
         {data: 'descripcion' },
         {data: 'fecha' },
         {data: 'nombre' },
-        {data: 'acciones' }
+        {data: 'dt_actions' }
       ],
      columnDefs: [
             {

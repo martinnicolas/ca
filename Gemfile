@@ -68,7 +68,7 @@ gem 'jquery-datatables-rails', '~> 3.4.0'
 
 gem 'ajax-datatables-rails'
 
-gem 'kaminari'
+gem 'draper' # Para decorators
 
 # ---------------------------
 # GEMAS PARA GRÁFICOS
