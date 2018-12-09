@@ -9,7 +9,7 @@ class ReclamoDecorator < Draper::Decorator
     links << h.link_to('Ver', object, :class => 'btn btn-sm btn-default')
     links << h.link_to('Editar', h.edit_reclamo_path(object), :class => 'btn btn-sm btn-primary')
     links << h.link_to('Eliminar', object, method: :delete, data: { confirm: 'Estás seguro?' }, :class => 'btn btn-sm btn-danger')
-    h.safe_join(links, "&nbsp;".html_safe)
+    h.safe_join(links, '&nbsp;'.html_safe)
   end
 
   # Define presentation-specific methods here. Helpers are accessed through
