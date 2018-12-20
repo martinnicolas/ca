@@ -6,6 +6,11 @@
   <%= wicked_pdf_stylesheet_link_tag 'pdf', media: 'all' %>
 </head>
 <body>
+  <div id="header">
+	<div class="page-header">      	
+		<h4><%= wicked_pdf_image_tag 'logot_chico.png' %> Ciudad Activa</h4>
+	</div>
+  </div>
   <div style="min-height:600px;" class="container">
     <%= yield %>
   </div>

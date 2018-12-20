@@ -1,5 +1,5 @@
 <div class="page-header">
-  <%= link_to new_user_path, class: 'btn btn-primary' do %>
+  <%= link_to new_user_path, class: 'btn btn-sm btn-primary' do %>
     <%= fa_icon "plus", text: "Nuevo Usuario" %>
   <% end %>
   <h4>Listado de Usuarios</h4>
@@ -35,13 +35,13 @@
       <td><%= user.last_sign_in_ip %></td>
       <td><%= user.sign_in_count %></td>
       <td style="width: 150px;">
-        <%= link_to user, class: 'btn btn-default' do %>
+        <%= link_to user, class: 'btn btn-sm btn-default' do %>
           <span class="glyphicon glyphicon-search"></span>
         <% end %>
-        <%= link_to edit_user_path(user), class: 'btn btn-default' do %>
+        <%= link_to edit_user_path(user), class: 'btn btn-sm btn-default' do %>
           <span class="glyphicon glyphicon-pencil"></span>
         <% end %>
-        <%= link_to user, class: 'btn btn-danger',method: :delete, data: { confirm: '¿Está seguro?' } do %>
+        <%= link_to user, class: 'btn btn-sm btn-danger',method: :delete, data: { confirm: '¿Está seguro?' } do %>
           <span class="glyphicon glyphicon-trash"></span>
         <% end %>
       </td>      

@@ -1,21 +1,21 @@
 <div class="page-header">
-  <%= link_to reclamos_path, class: 'btn btn-default' do %>
+  <%= link_to reclamos_path, class: 'btn btn-sm btn-default' do %>
     <%= fa_icon "list-alt", text: "Mis reclamos" %>
   <% end %>
   <% if @reclamo.user_id == current_user.id %>
-    <%= link_to edit_reclamo_path(@reclamo), class: 'btn btn-primary' do %>
+    <%= link_to edit_reclamo_path(@reclamo), class: 'btn btn-sm btn-primary' do %>
       <%= fa_icon "edit", text: "Editar" %>
     <% end %>
   <% end %>
-  <%= link_to index_path, class: 'btn btn-primary' do %>
+  <%= link_to index_path, class: 'btn btn-sm btn-primary' do %>
       <%= fa_icon "home", text: "Ir al inicio" %>
     <% end %>
   <% if @reclamo.valorado(current_user.id) %>
-    <%= link_to quitar_valor_path(@reclamo), class: 'btn btn-success' do %>
+    <%= link_to quitar_valor_path(@reclamo), class: 'btn btn-sm btn-success' do %>
       <%= fa_icon "thumbs-down", text: "Ya no me gusta" %>
     <% end %>
   <% else %>
-    <%= link_to valorar_path(@reclamo), class: 'btn btn-success' do %>
+    <%= link_to valorar_path(@reclamo), class: 'btn btn-sm btn-success' do %>
       <%= fa_icon "thumbs-up", text: "Me gusta" %>
     <% end %>
   <% end %>
@@ -72,14 +72,14 @@
                   <h3><%= reclamo.titulo %></h3>
                   <p>
                     <h4><span class="label label-success">
-                      <span class="glyphicon glyphicon-thumbs-up"></span>
+                      <%= fa_icon "thumbs-up" %>
                       <span class="badge"><%= reclamo.valoracion %></span>
                       </span>
                     </h4>
                   </p>
                   <p><%= reclamo.fecha.to_s(:default)%></p>              
                   <p>                
-                    <%= link_to reclamo, class: 'btn btn-primary btn-block' do %>
+                    <%= link_to reclamo, class: 'btn btn-sm btn-primary btn-block' do %>
                       <span class="glyphicon glyphicon-search"></span> Ver Reclamo
                     <% end %>
                   </p>

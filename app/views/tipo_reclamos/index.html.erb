@@ -1,5 +1,5 @@
 <div class="page-header">
-  <%= link_to new_tipo_reclamo_path, class: 'btn btn-primary' do %>
+  <%= link_to new_tipo_reclamo_path, class: 'btn btn-sm btn-primary' do %>
     <%= fa_icon "plus", text: "Nuevo tipo de reclamo" %>
   <% end %>
   <h4>Listado de  Tipos de Reclamos</h4>
@@ -29,13 +29,13 @@
       <%= content_tag_for(:tr, @tipo_reclamos) do |tipo_reclamo| %>
         <td><%= tipo_reclamo.nombre %></td>
         <td style="width: 150px;">
-          <%= link_to tipo_reclamo, class: 'btn btn-default' do %>
+          <%= link_to tipo_reclamo, class: 'btn btn-sm btn-default' do %>
             <span class="glyphicon glyphicon-search"></span>
           <% end %>
-          <%= link_to edit_tipo_reclamo_path(tipo_reclamo), class: 'btn btn-default' do %>
+          <%= link_to edit_tipo_reclamo_path(tipo_reclamo), class: 'btn btn-sm  btn-default' do %>
             <span class="glyphicon glyphicon-pencil"></span>
           <% end %>
-          <%= link_to tipo_reclamo, class: 'btn btn-danger',method: :delete, data: { confirm: '¿Está seguro?' } do %>
+          <%= link_to tipo_reclamo, class: 'btn btn-sm  btn-danger',method: :delete, data: { confirm: '¿Está seguro?' } do %>
             <span class="glyphicon glyphicon-trash"></span>
           <% end %>
         </td>     
