@@ -31,6 +31,8 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 # ---------------------------
 gem 'devise'
 
+gem 'jwt'
+
 gem 'cancancan'
 
 # ---------------------------
@@ -87,6 +89,11 @@ gem 'wkhtmltopdf-binary'
 # ---------------------------
 gem 'groupdate'
 
+# GEMAS PARA MANEJO DE API
+# ---------------------------
+# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+gem 'rack-cors'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -111,5 +118,5 @@ end
 
 gem 'rails_12factor', group: :production
 
-ruby "2.2.7"
+ruby "2.2.1"
 
