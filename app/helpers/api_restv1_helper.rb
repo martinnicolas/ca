@@ -1,6 +1,6 @@
 module ApiRestv1Helper
 
-  attr_reader :current_user
+  #attr_reader :current_user #Genera conflictos con la session!!
 
   protected
   def authenticate_request!

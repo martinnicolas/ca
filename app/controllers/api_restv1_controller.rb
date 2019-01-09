@@ -58,7 +58,7 @@ class ApiRestv1Controller < ApplicationController
     end
   end 
 
-  #API endpoints
+  
 
   private
 
