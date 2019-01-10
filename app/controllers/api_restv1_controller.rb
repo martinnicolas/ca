@@ -10,7 +10,13 @@ class ApiRestv1Controller < ApplicationController
   # GET api_restv1/reclamos
   def reclamos
   	reclamos = Reclamo.all
-  	render json: reclamos.to_json(include: [:tipo_reclamo, :ubicacion])
+  	render json: reclamos.to_json(include: [:tipo_reclamo, :ubicacion, :user])
+  end
+
+  # GET api_restv1/users/:id/reclamos
+  def reclamos_user
+  	reclamos = Reclamo.where(user_id: params[:id])
+  	render json: reclamos.to_json(include: [:tipo_reclamo, :ubicacion, :user])
   end
 
   # GET api_restv1/tipos_reclamo
@@ -23,6 +29,7 @@ class ApiRestv1Controller < ApplicationController
   def signin
     user = User.find_for_database_authentication(email: params[:email])
     if user.valid_password?(params[:password])
+      sign_in(user, scope: :user) 
       render json: payload(user)
     else
       render json: {errors: ['Invalid Username/Password']}, status: :unauthorized
@@ -36,23 +43,24 @@ class ApiRestv1Controller < ApplicationController
     user_email = params[:email]
 
     if user_email.present? 
-    	if user_password.present? 
-    		if user_confirm_password.present?
-    			if user_password == user_confirm_password
-		      		user = User.new
-		      		user.email = user_email
-		      		user.password = user_password
-		      		user.save
-		      		render json: payload(user)
-		      	else
-		      		render json: { errors: "La clave confirmada no coincide con la ingresada" }, status: :unprocessable_entity
-		      	end
-      		else
-      			render json: { errors: "Debe completar el campo confirmar clave" }, status: :unprocessable_entity	
-      		end
+      if user_password.present? 
+    	if user_confirm_password.present?
+    	  if user_password == user_confirm_password
+		    user = User.new
+		    user.email = user_email
+		    user.password = user_password
+		    user.save
+		    sign_in(user, scope: :user) 
+		    render json: payload(user)
+		   else
+		    render json: { errors: "La clave confirmada no coincide con la ingresada" }, status: :unprocessable_entity
+		   end
       	else
-      		render json: { errors: "Debe completar el campo clave" }, status: :unprocessable_entity
+      	  render json: { errors: "Debe completar el campo confirmar clave" }, status: :unprocessable_entity	
       	end
+      else
+        render json: { errors: "Debe completar el campo clave" }, status: :unprocessable_entity
+      end
     else
       render json: { errors: "Debe completar el campo email" }, status: :unprocessable_entity
     end
