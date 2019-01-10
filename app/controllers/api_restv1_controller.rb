@@ -7,15 +7,15 @@ class ApiRestv1Controller < ApplicationController
 
   #API endpoints
   
-  # GET api_restv1/reclamos
-  def reclamos
+  # GET api_restv1/index
+  def index
   	reclamos = Reclamo.all
   	render json: reclamos.to_json(include: [:tipo_reclamo, :ubicacion, :user])
   end
 
-  # GET api_restv1/users/:id/reclamos
-  def reclamos_user
-  	reclamos = Reclamo.where(user_id: params[:id])
+  # GET api_restv1/reclamos
+  def reclamos
+  	reclamos = Reclamo.where(user_id: current_user.id)
   	render json: reclamos.to_json(include: [:tipo_reclamo, :ubicacion, :user])
   end
 
@@ -52,9 +52,9 @@ class ApiRestv1Controller < ApplicationController
 		    user.save
 		    sign_in(user, scope: :user) 
 		    render json: payload(user)
-		   else
+		  else
 		    render json: { errors: "La clave confirmada no coincide con la ingresada" }, status: :unprocessable_entity
-		   end
+		  end
       	else
       	  render json: { errors: "Debe completar el campo confirmar clave" }, status: :unprocessable_entity	
       	end

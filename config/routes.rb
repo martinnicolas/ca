@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   #API routes
   post 'api_restv1/signin' => 'api_restv1#signin'
   post 'api_restv1/signup' => 'api_restv1#signup'
+  get 'api_restv1/index' => 'api_restv1#index'
   get 'api_restv1/reclamos' => 'api_restv1#reclamos'
-  get 'api_restv1/users/:id/reclamos' => 'api_restv1#reclamos_user'
   get 'api_restv1/tipos_reclamo' => 'api_restv1#tipos_reclamo'
 
   # Example of regular route:
