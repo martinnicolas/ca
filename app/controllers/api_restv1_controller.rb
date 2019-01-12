@@ -40,6 +40,32 @@ class ApiRestv1Controller < ApplicationController
     end
   end  
 
+  # POST api_restv1/reclamos
+  def crear_reclamo
+    reclamo = Reclamo.new
+    reclamo.tipo_reclamo_id = params[:tipo_reclamo_id]
+    reclamo.titulo = params[:titulo]
+    reclamo.descripcion = params[:descripcion]
+    if reclamo.save
+	  render json: reclamo.to_json(include: [:tipo_reclamo, :ubicacion, :user])
+    else
+      render json: {errors: ["Ocurrio un error al crear el reclamo"]}, status: :unprocessable_entity
+    end
+  end
+
+  # PUT/PATCH api_restv1/reclamos/:id
+  def actualizar_reclamo
+    reclamo = Reclamo.find(params[:id])
+    reclamo.tipo_reclamo_id = params[:tipo_reclamo_id]
+    reclamo.titulo = params[:titulo]
+    reclamo.descripcion = params[:descripcion]
+    if reclamo.save
+	  render json: reclamo.to_json(include: [:tipo_reclamo, :ubicacion, :user])
+    else
+      render json: {errors: ["Ocurrio un error al crear el reclamo"]}, status: :unprocessable_entity
+    end
+  end
+
   # POST api_restv1/signin
   def signin
     user = User.find_for_database_authentication(email: params[:email])
