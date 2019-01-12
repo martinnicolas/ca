@@ -4,35 +4,39 @@
 </div>
 
 <div class="row">
-<% @reclamos_destacados.each do |reclamo| %>
-	<div class="col-sm-6 col-md-4">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <%= fa_icon "user" %> <b><%= reclamo.user.email %></b>
-      </div>
-      <div class="panel-body text-center">
-        <div class="thumbnail">            
-          <%= image_tag(reclamo.imagen.thumb.url, :id => "reclamo")%>
-          <div class="caption">
-            <h4><%= reclamo.titulo%></h4>
-            <p>
-              <h4><span class="label label-success">
-                <%= fa_icon "thumbs-up" %>
-                <span class="badge"><%= reclamo.valoracion %></span>
-                </span>
-              </h4>
-            </p>
-            <p><%= reclamo.fecha.to_s(:default)%></p>              
-            <p>                
-              <%= link_to reclamo, class: 'btn btn-sm btn-primary btn-block' do %>
-                <%= fa_icon "search", text: "Ver Reclamo" %>
-              <% end %>
-            </p>
+<% if !@reclamos_destacados.blank? %>
+  <% @reclamos_destacados.each do |reclamo| %>
+  	<div class="col-sm-6 col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <%= fa_icon "user" %> <b><%= reclamo.user.email %></b>
+        </div>
+        <div class="panel-body text-center">
+          <div class="thumbnail">            
+            <%= image_tag(reclamo.imagen.thumb.url, :id => "reclamo")%>
+            <div class="caption">
+              <h4><%= reclamo.titulo%></h4>
+              <p>
+                <h4><span class="label label-success">
+                  <%= fa_icon "thumbs-up" %>
+                  <span class="badge"><%= reclamo.valoracion %></span>
+                  </span>
+                </h4>
+              </p>
+              <p><%= reclamo.fecha.to_s(:default)%></p>              
+              <p>                
+                <%= link_to reclamo, class: 'btn btn-sm btn-primary btn-block' do %>
+                  <%= fa_icon "search", text: "Ver Reclamo" %>
+                <% end %>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>      
+    </div>      
+  <% end %>
+<% else %>
+  <div class="alert fade in alert-info">Todavía no se ha apoyado ningún <b>Reclamo</b>. Apoya los Reclamos!.</div>
 <% end %>
 </div>
 
@@ -41,35 +45,39 @@
 </div>
 
 <div class="row">
-<% @ultimos_reclamos.each do |reclamo| %>
-	<div class="col-sm-6 col-md-4">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <%= fa_icon "user" %> <b><%= reclamo.user.email %></b>
-      </div>
-      <div class="panel-body text-center">
-        <div class="thumbnail">            
-          <%= image_tag(reclamo.imagen.thumb.url, :id => "reclamo")%>
-          <div class="caption">
-            <h4><%= reclamo.titulo%></h4>
-            <p>
-              <h4><span class="label label-success">
-                <%= fa_icon "thumbs-up" %>
-                <span class="badge"><%= reclamo.valoracion %></span>
-                </span>
-              </h4>
-            </p>
-            <p><%= reclamo.fecha.to_s(:default)%></p>              
-            <p>                
-              <%= link_to reclamo, class: 'btn btn-sm btn-primary btn-block' do %>
-                <%= fa_icon "search", text: "Ver Reclamo" %>
-              <% end %>
-            </p>
+<% if !@ultimos_reclamos.empty? %>
+  <% @ultimos_reclamos.each do |reclamo| %>
+  	<div class="col-sm-6 col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <%= fa_icon "user" %> <b><%= reclamo.user.email %></b>
+        </div>
+        <div class="panel-body text-center">
+          <div class="thumbnail">            
+            <%= image_tag(reclamo.imagen.thumb.url, :id => "reclamo")%>
+            <div class="caption">
+              <h4><%= reclamo.titulo%></h4>
+              <p>
+                <h4><span class="label label-success">
+                  <%= fa_icon "thumbs-up" %>
+                  <span class="badge"><%= reclamo.valoracion %></span>
+                  </span>
+                </h4>
+              </p>
+              <p><%= reclamo.fecha.to_s(:default)%></p>              
+              <p>                
+                <%= link_to reclamo, class: 'btn btn-sm btn-primary btn-block' do %>
+                  <%= fa_icon "search", text: "Ver Reclamo" %>
+                <% end %>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>      
+    </div>      
+  <% end %>
+<% else %>
+  <div class="alert fade in alert-info">Todavía no se ha creado ningún <b>Reclamo</b>. Crea tu primer Reclamo!.</div>
 <% end %>
 </div>
 

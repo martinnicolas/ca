@@ -2,7 +2,7 @@ class ApiRestv1Controller < ApplicationController
   include ApiRestv1Helper
   
   skip_before_action :verify_authenticity_token  
-  before_filter :authenticate_request!, except: [:signin]
+  before_filter :authenticate_request!, except: [:signin, :singup]
 
 
   #API endpoints
@@ -24,6 +24,21 @@ class ApiRestv1Controller < ApplicationController
   	tipos_reclamo = TipoReclamo.all
   	render json: tipos_reclamo.to_json
   end
+
+  # GET api_restv1/reclamos/:id/valorar
+  def valorar_reclamo
+  	reclamo = Reclamo.find(params[:reclamo_id])
+  	valoracion_existente = ReclamoUsuario.exists?(:reclamo_id => params[:reclamo_id], :user_id => params[:user_id])
+    if !valoracion_existente
+      reclamo_usuario = ReclamoUsuario.new
+      reclamo_usuario.reclamo_id = params[:id]
+      reclamo_usuario.user_id = current_user.id
+      reclamo_usuario.save
+      render json: reclamo.to_json(include: [:tipo_reclamo, :ubicacion, :user])
+    else
+      render json: {errors: ["El reclamo ya fue valorado"]}, status: :unprocessable_entity
+    end
+  end  
 
   # POST api_restv1/signin
   def signin
