@@ -2,7 +2,7 @@ class ApiRestv1Controller < ApplicationController
   include ApiRestv1Helper
   
   skip_before_action :verify_authenticity_token  
-  before_filter :authenticate_request!, except: [:signin, :singup]
+  before_filter :authenticate_request!, except: [:signin, :signup]
 
 
   #API endpoints
@@ -66,10 +66,23 @@ class ApiRestv1Controller < ApplicationController
     end
   end
 
+  # DELETE api_restv1/reclamos/:id
+  def eliminar_reclamo
+  	reclamo = Reclamo.find(params[:id])
+  	reclamo_usuario = ReclamoUsuario.where(:reclamo_id => params[:id])
+    if !reclamo_usuario.empty?
+      ReclamoUsuario.destroy_all(:reclamo_id => params[:id])
+    end
+    ubicacion_id = reclamo.ubicacion_id
+    reclamo.destroy
+    Ubicacion.destroy(ubicacion_id)
+    render json: reclamo.to_json(include: [:tipo_reclamo, :ubicacion, :user])
+  end
+
   # POST api_restv1/signin
   def signin
     user = User.find_for_database_authentication(email: params[:email])
-    if user.valid_password?(params[:password])
+    if user && user.valid_password?(params[:password])
       sign_in(user, scope: :user) 
       render json: payload(user)
     else
@@ -82,7 +95,6 @@ class ApiRestv1Controller < ApplicationController
     user_password = params[:password]
     user_confirm_password = params[:confirm_password]
     user_email = params[:email]
-
     if user_email.present? 
       if user_password.present? 
     	if user_confirm_password.present?

@@ -27,7 +27,8 @@ Rails.application.routes.draw do
   get 'api_restv1/tipos_reclamo' => 'api_restv1#tipos_reclamo'
   post 'api_restv1/reclamos/:id/valorar' => 'api_restv1#valorar_reclamo'
   post 'api_restv1/reclamos' => 'api_restv1#crear_reclamo'
-  post 'api_restv1/reclamos/:id' => 'api_restv1#actualizar_reclamo'
+  put 'api_restv1/reclamos/:id' => 'api_restv1#actualizar_reclamo'
+  delete 'api_restv1/reclamos/:id' => 'api_restv1#eliminar_reclamo'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
