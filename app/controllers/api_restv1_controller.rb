@@ -43,26 +43,39 @@ class ApiRestv1Controller < ApplicationController
   # POST api_restv1/reclamos
   def crear_reclamo
     reclamo = Reclamo.new
+    reclamo.imagen = params[:imagen]
     reclamo.tipo_reclamo_id = params[:tipo_reclamo_id]
     reclamo.titulo = params[:titulo]
+    reclamo.fecha = params[:fecha]
+    reclamo.ubicacion = Ubicacion.new
+    reclamo.ubicacion.latitud = params[:latitud]
+    reclamo.ubicacion.longitud = params[:longitud]
     reclamo.descripcion = params[:descripcion]
+    reclamo.user_id = current_user.id
+    debugger
     if reclamo.save
 	  render json: reclamo.to_json(include: [:tipo_reclamo, :ubicacion, :user])
     else
-      render json: {errors: ["Ocurrio un error al crear el reclamo"]}, status: :unprocessable_entity
+      render json: {errors: reclamo.errors}, status: :unprocessable_entity
     end
   end
 
   # PUT/PATCH api_restv1/reclamos/:id
   def actualizar_reclamo
     reclamo = Reclamo.find(params[:id])
+    reclamo.imagen = params[:imagen]
     reclamo.tipo_reclamo_id = params[:tipo_reclamo_id]
     reclamo.titulo = params[:titulo]
+    reclamo.fecha = params[:fecha]
+    reclamo.ubicacion = Ubicacion.new
+    reclamo.ubicacion.latitud = params[:latitud]
+    reclamo.ubicacion.longitud = params[:latitud]
     reclamo.descripcion = params[:descripcion]
+    reclamo.user_id = current_user.id
     if reclamo.save
 	  render json: reclamo.to_json(include: [:tipo_reclamo, :ubicacion, :user])
     else
-      render json: {errors: ["Ocurrio un error al crear el reclamo"]}, status: :unprocessable_entity
+      render json: {errors: reclamo.errors}, status: :unprocessable_entity
     end
   end
 
