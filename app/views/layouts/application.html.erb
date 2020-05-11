@@ -55,9 +55,9 @@
           <div id="navbar" class="collapse navbar-collapse">
           <% if user_signed_in? %>
               <ul class="nav navbar-nav">
-                <li class="<%= 'active' if params[:controller] == 'index' %>"><%= link_to "Inicio", index_path %>
-                <li class="<%= 'active' if params[:controller] == 'reclamos' && params[:action] == 'new' %>"><%= link_to "Nuevo Reclamo", new_reclamo_path %> 
-                <li class="<%= 'active' if params[:controller] == 'reclamos' && params[:action] == 'index' %>"><%= link_to "Mis Reclamos", reclamos_path %>                                
+                <li class="<%= 'active' if params[:controller] == 'index' %>"><%= link_to "Inicio", index_path %></li>
+                <li class="<%= 'active' if params[:controller] == 'reclamos' && params[:action] == 'new' %>"><%= link_to "Nuevo Reclamo", new_reclamo_path %></li> 
+                <li class="<%= 'active' if params[:controller] == 'reclamos' && params[:action] == 'index' %>"><%= link_to "Mis Reclamos", reclamos_path %></li>                                
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     <strong><%= current_user.email %></strong>

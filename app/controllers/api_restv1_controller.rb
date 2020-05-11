@@ -52,7 +52,6 @@ class ApiRestv1Controller < ApplicationController
     reclamo.ubicacion.longitud = params[:longitud]
     reclamo.descripcion = params[:descripcion]
     reclamo.user_id = current_user.id
-    debugger
     if reclamo.save
 	  render json: reclamo.to_json(include: [:tipo_reclamo, :ubicacion, :user])
     else
