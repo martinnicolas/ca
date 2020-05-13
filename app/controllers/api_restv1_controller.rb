@@ -10,13 +10,13 @@ class ApiRestv1Controller < ApplicationController
   # GET api_restv1/index
   def index
   	reclamos = Reclamo.all
-  	render json: reclamos.to_json(include: [:tipo_reclamo, :ubicacion, :user])
+  	render json: reclamos.to_json(include: [:tipo_reclamo, :ubicacion, :user], methods: [:valoracion])
   end
 
   # GET api_restv1/reclamos
   def reclamos
   	reclamos = Reclamo.where(user_id: current_user.id)
-  	render json: reclamos.to_json(include: [:tipo_reclamo, :ubicacion, :user])
+  	render json: reclamos.to_json(include: [:tipo_reclamo, :ubicacion, :user], methods: [:valoracion])
   end
 
   # GET api_restv1/tipos_reclamo
@@ -28,15 +28,14 @@ class ApiRestv1Controller < ApplicationController
   # GET api_restv1/reclamos/:id/valorar
   def valorar_reclamo
   	reclamo = Reclamo.find(params[:reclamo_id])
-  	valoracion_existente = ReclamoUsuario.exists?(:reclamo_id => params[:reclamo_id], :user_id => params[:user_id])
-    if !valoracion_existente
+    if !reclamo.valorado(current_user.id)
       reclamo_usuario = ReclamoUsuario.new
       reclamo_usuario.reclamo_id = params[:id]
       reclamo_usuario.user_id = current_user.id
       reclamo_usuario.save
-      render json: reclamo.to_json(include: [:tipo_reclamo, :ubicacion, :user])
+      render json: reclamo.to_json(include: [:tipo_reclamo, :ubicacion, :user], methods: [:valoracion])
     else
-      render json: {errors: ["El reclamo ya fue valorado"]}, status: :unprocessable_entity
+      render json: "El reclamo ya fue valorado!", status: :unprocessable_entity
     end
   end  
 
@@ -98,7 +97,7 @@ class ApiRestv1Controller < ApplicationController
       sign_in(user, scope: :user) 
       render json: payload(user)
     else
-      render json: {errors: ['Invalid Username/Password']}, status: :unauthorized
+      render json: 'Usuario o clave incorrectos!', status: :unauthorized
     end
   end
 
@@ -118,16 +117,16 @@ class ApiRestv1Controller < ApplicationController
 		    sign_in(user, scope: :user) 
 		    render json: payload(user)
 		  else
-		    render json: { errors: "La clave confirmada no coincide con la ingresada" }, status: :unprocessable_entity
+		    render json: "La clave confirmada no coincide con la ingresada", status: :unprocessable_entity
 		  end
       	else
-      	  render json: { errors: "Debe completar el campo confirmar clave" }, status: :unprocessable_entity	
+      	  render json: "Debe completar el campo confirmar clave", status: :unprocessable_entity	
       	end
       else
-        render json: { errors: "Debe completar el campo clave" }, status: :unprocessable_entity
+        render json: "Debe completar el campo clave", status: :unprocessable_entity
       end
     else
-      render json: { errors: "Debe completar el campo email" }, status: :unprocessable_entity
+      render json: "Debe completar el campo email", status: :unprocessable_entity
     end
   end 
 
