@@ -18,11 +18,13 @@
     </thead>
 
     <tbody>
-      <%= content_tag_for(:tr, @roles) do |role| %>
-            <td><%= role.descripcion %></td>
-            <td><%= link_to 'Ver', role %></td>
-        <td><%= link_to 'Editar', edit_role_path(role) %></td>
-        <td><%= link_to 'Eliminar', role, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
+      <% @roles.each do |role| %>
+        <tr>
+          <td><%= role.descripcion %></td>
+          <td><%= link_to 'Ver', role %></td>
+          <td><%= link_to 'Editar', edit_role_path(role) %></td>
+          <td><%= link_to 'Eliminar', role, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
+        </tr>
       <% end %>
     </tbody>
   </table>

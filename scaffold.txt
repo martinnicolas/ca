@@ -1,8 +1,0 @@
-rails g scaffold TipoReclamo nombre:string
-rails g model Ubicacion latitud:string longitud:string
-rails g scaffold Reclamo imagen:string titulo:string descripcion:string fecha:date ubicacion:references tipo_reclamo:references user:references
-rails g model ReclamoUsuario reclamo:references user:references
-rails g scaffold Role descripcion:string
-rails g model UserRole user:references role:references
-rails g controller users (Agregar metodos manualmente)
-rails g controller admin index

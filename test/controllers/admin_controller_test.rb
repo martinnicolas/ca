@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class AdminControllerTest < ActionController::TestCase
-  include Devise::TestHelpers
+  include Devise::Test::ControllerHelpers
   
   test "should get index" do
   	# Mimic the router behavior of setting the Devise scope through the env.

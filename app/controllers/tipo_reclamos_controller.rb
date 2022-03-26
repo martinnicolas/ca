@@ -11,7 +11,7 @@ class TipoReclamosController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-          render pdf: "reporte_tipos_de_reclamo.pdf",          
+          render pdf: "reporte_tipos_de_reclamo.pdf",
           template: "tipo_reclamos/reporte_tipos_de_reclamo.html.erb"
       end
     end

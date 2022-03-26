@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -21,10 +20,9 @@ ActiveRecord::Schema.define(version: 20161030215642) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["reclamo_id"], name: "index_reclamo_usuarios_on_reclamo_id", using: :btree
+    t.index ["user_id"], name: "index_reclamo_usuarios_on_user_id", using: :btree
   end
-
-  add_index "reclamo_usuarios", ["reclamo_id"], name: "index_reclamo_usuarios_on_reclamo_id", using: :btree
-  add_index "reclamo_usuarios", ["user_id"], name: "index_reclamo_usuarios_on_user_id", using: :btree
 
   create_table "reclamos", force: :cascade do |t|
     t.string   "imagen"
@@ -36,11 +34,10 @@ ActiveRecord::Schema.define(version: 20161030215642) do
     t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.index ["tipo_reclamo_id"], name: "index_reclamos_on_tipo_reclamo_id", using: :btree
+    t.index ["ubicacion_id"], name: "index_reclamos_on_ubicacion_id", using: :btree
+    t.index ["user_id"], name: "index_reclamos_on_user_id", using: :btree
   end
-
-  add_index "reclamos", ["tipo_reclamo_id"], name: "index_reclamos_on_tipo_reclamo_id", using: :btree
-  add_index "reclamos", ["ubicacion_id"], name: "index_reclamos_on_ubicacion_id", using: :btree
-  add_index "reclamos", ["user_id"], name: "index_reclamos_on_user_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "descripcion"
@@ -66,10 +63,9 @@ ActiveRecord::Schema.define(version: 20161030215642) do
     t.integer  "role_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_user_roles_on_role_id", using: :btree
+    t.index ["user_id"], name: "index_user_roles_on_user_id", using: :btree
   end
-
-  add_index "user_roles", ["role_id"], name: "index_user_roles_on_role_id", using: :btree
-  add_index "user_roles", ["user_id"], name: "index_user_roles_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -84,10 +80,9 @@ ActiveRecord::Schema.define(version: 20161030215642) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "reclamo_usuarios", "reclamos"
   add_foreign_key "reclamo_usuarios", "users"

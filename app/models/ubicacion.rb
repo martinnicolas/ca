@@ -1,2 +1,2 @@
-class Ubicacion < ActiveRecord::Base
+class Ubicacion < ApplicationRecord
 end

@@ -1,7 +1,12 @@
 source 'https://rubygems.org'
 
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.4'
+gem 'rails', '~> 5.0.7'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -16,9 +21,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+gem 'turbolinks', '2.5.3'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder', '~> 2.5'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -56,7 +61,7 @@ gem 'mini_magick'
 # ---------------------------
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 
-gem 'bootstrap-generators', :git => 'git://github.com/decioferreira/bootstrap-generators.git'
+gem 'bootstrap-generators', github: 'decioferreira/bootstrap-generators'
 
 # ---------------------------
 # GEMA PARA FONTAWESOME
@@ -66,9 +71,9 @@ gem "font-awesome-rails"
 # ---------------------------
 # GEMAS PARA DATATABLES
 # ---------------------------
-gem 'jquery-datatables-rails', '~> 3.4.0'
+gem 'jquery-datatables'
 
-gem 'ajax-datatables-rails'
+gem 'ajax-datatables-rails', '1.1.0'
 
 gem 'draper' # Para decorators
 
@@ -80,9 +85,9 @@ gem "chartkick"
 # ---------------------------
 # GEMAS PARA GENERAR REPORTES PDF
 # ---------------------------
-gem 'wicked_pdf'
+gem 'wicked_pdf', '2.0.1'
 
-gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-binary', '0.12.5.4'
 
 # ---------------------------
 # GEMAS PARA AGRUPAR MINUTO, HORA, DIA ETC.
@@ -93,6 +98,7 @@ gem 'groupdate'
 # ---------------------------
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -118,5 +124,5 @@ end
 
 gem 'rails_12factor', group: :production
 
-ruby "2.2.10"
+ruby '2.4.0'
 

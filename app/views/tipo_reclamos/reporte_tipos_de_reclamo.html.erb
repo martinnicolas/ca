@@ -12,8 +12,10 @@
     </thead>
 
     <tbody>
-      <%= content_tag_for(:tr, @tipo_reclamos) do |tipo_reclamo| %>
-        <td><%= tipo_reclamo.nombre %></td>
+      <% @tipo_reclamos.each do |tipo_reclamo| %>
+        <tr>
+          <td><%= tipo_reclamo.nombre %></td>
+        </tr>
       <% end %>
     </tbody>
   </table>

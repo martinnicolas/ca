@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ReclamosControllerTest < ActionController::TestCase
-  include Devise::TestHelpers
+  include Devise::Test::ControllerHelpers
   
   setup do
     @reclamo = reclamos(:one)
@@ -16,7 +16,6 @@ class ReclamosControllerTest < ActionController::TestCase
     sign_in users(:one)
     get :index
     assert_response :success
-    assert_not_nil assigns(:reclamos)
   end
 
   test "should get new" do
@@ -36,10 +35,23 @@ class ReclamosControllerTest < ActionController::TestCase
     # Use the sign_in helper to sign in a fixture `User` record.
     sign_in users(:one)
     assert_difference('Reclamo.count') do
-      post :create, reclamo: { descripcion: @reclamo.descripcion, fecha: @reclamo.fecha, imagen: @reclamo.imagen, tipo_reclamo_id: @reclamo.tipo_reclamo_id, titulo: @reclamo.titulo, user_id: @reclamo.user_id }, ubicacion: { latitud: @ubicacion.latitud, longitud: @ubicacion.longitud }
+      post :create, params: { 
+        reclamo: { 
+          descripcion: @reclamo.descripcion, 
+          fecha: @reclamo.fecha, 
+          imagen: @reclamo.imagen, 
+          tipo_reclamo_id: @reclamo.tipo_reclamo_id, 
+          titulo: @reclamo.titulo, 
+          user_id: @reclamo.user_id 
+        }, 
+        ubicacion: { 
+          latitud: @ubicacion.latitud, 
+          longitud: @ubicacion.longitud 
+        } 
+      }
     end
 
-    assert_redirected_to reclamo_path(assigns(:reclamo))
+    assert_redirected_to reclamo_path(Reclamo.last)
   end
 
   test "should show reclamo" do
@@ -48,7 +60,7 @@ class ReclamosControllerTest < ActionController::TestCase
 
     # Use the sign_in helper to sign in a fixture `User` record.
     sign_in users(:one)
-    get :show, id: @reclamo
+    get :show, params: { id: @reclamo.id }
     assert_response :success
   end
 
@@ -58,7 +70,7 @@ class ReclamosControllerTest < ActionController::TestCase
 
     # Use the sign_in helper to sign in a fixture `User` record.
     sign_in users(:one)
-    get :edit, id: @reclamo
+    get :edit, params: { id: @reclamo.id }
     assert_response :success
   end
 
@@ -68,8 +80,22 @@ class ReclamosControllerTest < ActionController::TestCase
 
     # Use the sign_in helper to sign in a fixture `User` record.
     sign_in users(:one)
-    patch :update, id: @reclamo, reclamo: { descripcion: @reclamo.descripcion, fecha: @reclamo.fecha, imagen: @reclamo.imagen, tipo_reclamo_id: @reclamo.tipo_reclamo_id, titulo: @reclamo.titulo, user_id: @reclamo.user_id }, ubicacion: { latitud: @ubicacion.latitud, longitud: @ubicacion.longitud }
-    assert_redirected_to reclamo_path(assigns(:reclamo))
+    patch :update, params: { 
+      id: @reclamo, 
+      reclamo: { 
+        descripcion: @reclamo.descripcion, 
+        fecha: @reclamo.fecha, 
+        imagen: @reclamo.imagen, 
+        tipo_reclamo_id: @reclamo.tipo_reclamo_id, 
+        titulo: @reclamo.titulo, 
+        user_id: @reclamo.user_id 
+      }, 
+      ubicacion: { 
+        latitud: @ubicacion.latitud, 
+        longitud: @ubicacion.longitud 
+        }
+    }
+    assert_redirected_to reclamo_path(@reclamo)
   end
 
   test "should destroy reclamo" do
@@ -79,7 +105,7 @@ class ReclamosControllerTest < ActionController::TestCase
     # Use the sign_in helper to sign in a fixture `User` record.
     sign_in users(:one)
     assert_difference('Reclamo.count', -1) do
-      delete :destroy, id: @reclamo
+      delete :destroy, params: { id: @reclamo.id }
     end
 
     assert_redirected_to reclamos_path

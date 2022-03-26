@@ -11,7 +11,7 @@
 </ol>
 
 <div class="well">
-  <%= link_to "#{tipo_reclamos_path}.pdf", class: 'btn btn-sm btn-danger' do %>
+  <%= link_to "#{tipo_reclamos_path}.pdf", class: 'btn btn-sm btn-danger', target: '_blank' do %>
     <%= fa_icon "file-pdf-o", text: "Exportar" %>
   <% end %>
 </div>
@@ -26,19 +26,21 @@
     </thead>
 
     <tbody>
-      <%= content_tag_for(:tr, @tipo_reclamos) do |tipo_reclamo| %>
-        <td><%= tipo_reclamo.nombre %></td>
-        <td style="width: 150px;">
-          <%= link_to tipo_reclamo, class: 'btn btn-sm btn-default' do %>
-            <span class="glyphicon glyphicon-search"></span>
-          <% end %>
-          <%= link_to edit_tipo_reclamo_path(tipo_reclamo), class: 'btn btn-sm  btn-default' do %>
-            <span class="glyphicon glyphicon-pencil"></span>
-          <% end %>
-          <%= link_to tipo_reclamo, class: 'btn btn-sm  btn-danger',method: :delete, data: { confirm: '¿Está seguro?' } do %>
-            <span class="glyphicon glyphicon-trash"></span>
-          <% end %>
-        </td>     
+      <% @tipo_reclamos.each do |tipo_reclamo| %>
+        <tr>
+          <td><%= tipo_reclamo.nombre %></td>
+          <td class="text-center col-md-2">
+            <%= link_to tipo_reclamo, class: 'btn btn-sm btn-default' do %>
+              <span class="glyphicon glyphicon-search"></span>
+            <% end %>
+            <%= link_to edit_tipo_reclamo_path(tipo_reclamo), class: 'btn btn-sm  btn-default' do %>
+              <span class="glyphicon glyphicon-pencil"></span>
+            <% end %>
+            <%= link_to tipo_reclamo, class: 'btn btn-sm  btn-danger',method: :delete, data: { confirm: '¿Está seguro?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+            <% end %>
+          </td>     
+        </tr>
       <% end %>
     </tbody>
   </table>

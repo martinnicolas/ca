@@ -1,4 +1,4 @@
-class TipoReclamo < ActiveRecord::Base
+class TipoReclamo < ApplicationRecord
 	def to_s
 		self.nombre
 	end

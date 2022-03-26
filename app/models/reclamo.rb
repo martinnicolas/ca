@@ -1,4 +1,4 @@
-class Reclamo < ActiveRecord::Base
+class Reclamo < ApplicationRecord
   mount_uploader :imagen, ImagenUploader
 
   validates :tipo_reclamo_id, :presence => { :message => "Debe completar el campo Tipo de reclamo" }

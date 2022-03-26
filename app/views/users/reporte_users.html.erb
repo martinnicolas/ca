@@ -14,11 +14,13 @@
     </thead>
 
     <tbody>
-      <%= content_tag_for(:tr, @users) do |user| %>
-      <td><%= user.email %></td>
-      <td><%= user.last_sign_in_at %></td>
-      <td><%= user.last_sign_in_ip %></td>
-      <td><%= user.sign_in_count %></td>     
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+          <td><%= user.last_sign_in_at %></td>
+          <td><%= user.last_sign_in_ip %></td>
+          <td><%= user.sign_in_count %></td>     
+        </tr>
       <% end %>
     </tbody>
   </table>
