@@ -1,6 +1,6 @@
 # Ciudad Activa 
 
-[![Tests](https://github.com/martinnicolas/ca/actions/workflows/tests.yml/badge.svg)](https://github.com/martinnicolas/ca/actions/workflows/tests.yml)
+[![Ruby](https://github.com/martinnicolas/ca/actions/workflows/ruby.yml/badge.svg)](https://github.com/martinnicolas/ca/actions/workflows/ruby.yml)
 [![Wercker](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
 
 
