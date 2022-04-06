@@ -1,6 +1,7 @@
 # Ciudad Activa 
 
 [![Tests](https://github.com/martinnicolas/ca/actions/workflows/tests.yml/badge.svg)](https://github.com/martinnicolas/ca/actions/workflows/tests.yml)
+[![Build Status](https://travis-ci.org/martinnicolas/ca.svg?branch=master)](https://travis-ci.org/martinnicolas/ca)
 [![Wercker](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
 
 
