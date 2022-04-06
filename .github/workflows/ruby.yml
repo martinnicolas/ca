@@ -46,7 +46,4 @@ jobs:
       env:
           RAILS_ENV: "test"
           DATABASE_URL: "postgres://postgres@localhost:5432/ca_test"
-      run: bundle exec rake db:create
-      run: bundle exec rake db:schema:load
-      run: bundle exec rake db:seed
-      run: bundle exec rake
+      run: bundle exec rake db:create | bundle exec rake db:schema:load | bundle exec rake db:seed | bundle exec rake
